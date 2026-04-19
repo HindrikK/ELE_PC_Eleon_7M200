@@ -1,0 +1,10 @@
+<Type>511</Type>
+<HWProject>P11524</HWProject>
+<Target Type='CPU'>
+  <BLProject>P11524</BLProject>
+  <BLRevision>1.1.4</BLRevision>
+  <BLFile>I:\wpline\511\WPL511CPU_BL_MK_II_1_1_4.CRC</BLFile>
+  <AppProject>P11524</AppProject>
+  <AppRevision>2.0.4</AppRevision>
+  <AppFile>I:\wpline\511\WPL511CPU_APP_MK_II_2_0_4.crc</AppFile>
+</Target>

@@ -1,0 +1,628 @@
+﻿# Version 210330
+
+# DLL SIMULATION
+
+Name: P_DLL_GenEfficiency
+Type: U8
+Value: 93
+Scaling: 1
+Unit: pct
+
+Name: P_DLL_OwnCons
+Type: U16
+Value: 80
+Scaling: 1
+Unit: kW
+
+# GENERAL
+
+Name: P_PAT_GridNominalPower
+Type: S32
+Value: 3000
+Scaling: 1
+Unit: kW
+
+Name: P_PAT_RatedSpeed
+Type: U32
+Value: 13.2
+Scaling: 100
+Unit: rpm
+
+Name: P_PAT_MinRpm
+Type: U32
+Value: 4.3
+Scaling: 100
+Unit: rpm
+
+Name: P_MaxOperGeneratorRpm
+Type: S32
+Value: 14.5
+Scaling: 100
+Unit: rpm
+
+
+# PITCH
+
+Name: P_PAT_PitchAngleMin
+Type: S32
+Value: 0
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_PitchAngleStop
+Type: S32
+Value: 90
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_PitchSpeedMax
+Type: U32
+Value: 4.5
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_PitchAccelDecel
+Type: U16
+Value: 0.2
+Scaling: 100
+Unit: deg/s*s
+
+Name: P_PAT_PitchGainAdjAngle1
+Type: S32
+Value: 0
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_PitchGainAdjAngle2
+Type: S32
+Value: 20
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_PitchGainAdjFactor1
+Type: F32
+Value: 1
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_PitchGainAdjFactor2
+Type: F32
+Value: 0.32
+Scaling: 1
+Unit: gain
+
+Name: P_BLC_AngleMaxDeviation
+Type: S32
+Value: 3.00
+Scaling: 100
+Unit: deg
+
+Name: P_BLC_AngleIndividualDeviation
+Type: S32
+Value: 2.00
+Scaling: 100
+Unit: deg
+
+# STARTUP STATE
+
+Name: P_PAT_PwrRampStartup
+Type: U16
+Value: 120
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_StartupWindMin
+Type: U16
+Value: 2.2
+Scaling: 100
+Unit: m/s
+
+Name: P_PAT_StartupModeTime
+Type: U32
+Value: 20
+Scaling: 1000
+Unit: s
+
+Name: P_PAT_StartupInitRpm
+Type: U32
+Value: 1.0
+Scaling: 100
+Unit: rpm
+
+Name: P_PAT_StartupRpm
+Type: U32
+Value: 4.7
+Scaling: 100
+Unit: rpm
+
+Name: P_PAT_PitchLimitInitial
+Type: S32
+Value: 30.00
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_PitchSpeedStarting
+Type: U32
+Value: 2.5
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_RpmAccLimStarting
+Type: S32
+Value: 0.16
+Scaling: 100
+Unit: deg/s*s
+
+# BELOW RATED STATE
+
+Name: P_PAT_PwrRampBelowRated
+Type: U16
+Value: 300
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PwrMaxBelowRated
+Type: S32
+Value: 2000
+Scaling: 1
+Unit: kW
+
+Name: P_PAT_RpmMaxBelowRated
+Type: U32
+Value: 12.9
+Scaling: 100
+Unit: rpm
+
+Name: P_PAT_BelowRatedPitchPIDRpm
+Type: U32
+Value: 13.38
+Scaling: 100
+Unit: rpm
+
+# RATED SPEED
+
+Name: P_PAT_PwrRampRatedSpeed
+Type: U16
+Value: 300
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PowerPID_Kp
+Type: F32
+Value: 8
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_PowerPID_Ki
+Type: F32
+Value: 0.065
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_PowerPID_Kd
+Type: F32
+Value: 5
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_RatedSpeedPitchPIDRpm
+Type: U32
+Value: 13.38
+Scaling: 100
+Unit: rpm
+
+# RATED POWER STATE
+
+Name: P_PAT_PwrRampRatedPwr
+Type: U16
+Value: 250
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PitchPIDrated_Kp
+Type: F32
+Value: 6.4
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_PitchPIDrated_Ki
+Type: F32
+Value: 0.045
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_PitchPIDrated_Kd
+Type: F32
+Value: 6.0
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_RatedPowerPowerPIDRpm
+Type: U32
+Value: 12.85
+Scaling: 100
+Unit: rpm
+
+# STOPPING STATES
+
+Name: P_PAT_PwrRampNormalStop
+Type: U16
+Value: 150
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PwrRampFastStop
+Type: U16
+Value: 500
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PwrRampImmediateStop
+Type: U16
+Value: 1000
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PitchSpeedNormalStop
+Type: U32
+Value: 2.0
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_PitchSpeedNormalStop2
+Type: U32
+Value: 3.0
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_PitchSpeedFastStop
+Type: U32
+Value: 4.5
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_PitchSpeedImmediateStop
+Type: U32
+Value: 4.5
+Scaling: 100
+Unit: deg/s
+
+# LIMITED STATE
+
+Name: P_PAT_PwrRampLimited
+Type: U16
+Value: 50
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_LimitedPowerPIDRpm
+Type: U32
+Value: 0.3
+Scaling: 100
+Unit: rpm
+
+# LOW WIND STATE
+
+Name: P_PAT_LowWindDelay
+Type: U32
+Value: 10
+Scaling: 60000
+Unit: min
+
+Name: P_PAT_LowWindPower
+Type: S32
+Value: -2
+Scaling: 1
+Unit: kW
+
+Name: P_PAT_LowWindAngle
+Type: S32
+Value: 40
+Scaling: 100
+Unit: deg
+
+# POWER COMPENSATION
+
+Name: P_PAT_PwrCompEnable
+Type: U8
+Value: 1
+Scaling: 1
+Unit: bool
+
+Name: P_PAT_MinRatedLosses
+Type: F32
+Value: 7.0
+Scaling: 1
+Unit: pct
+
+Name: P_PAT_PwrCompSpeedInc
+Type: U16
+Value: 2
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PwrCompSpeedDec
+Type: U16
+Value: 2
+Scaling: 1
+Unit: kW/s
+
+Name: P_PAT_PwrCompMax
+Type: S16
+Value: 120
+Scaling: 1
+Unit: kW
+
+Name: P_PAT_PwrCompMin
+Type: S16
+Value: 0
+Scaling: 1
+Unit: kW
+
+Name: P_PAT_PwrCompHyst
+Type: U16
+Value: 5
+Scaling: 1
+Unit: kW
+
+# OVERSPEED
+
+Name: P_PAT_OVspd_RotorAccMax
+Type: S32
+Value: 0.2
+Scaling: 100
+Unit: rpm/s
+
+Name: P_PAT_OVspd_PitchSpd_1
+Type: U32
+Value: 0.5
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_OVspd_PitchSpd_2
+Type: U32
+Value: 3.5
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_OVspd_StabTime
+Type: U32
+Value: 3.0
+Scaling: 1000
+Unit: s
+
+# OVERSPEED PREVENTION
+
+Name: P_PAT_OVSpd_Rpm
+Type: U32
+Value: 13.8
+Scaling: 100
+Unit: rpm
+
+Name: P_PAT_OVSpd_PitchPID_Kp
+Type: F32
+Value: 5.9
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_OVSpd_PitchPID_Ki
+Type: F32
+Value: 0.042
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_OVSpd_PitchPID_Kd
+Type: F32
+Value: 3.5
+Scaling: 1
+Unit: gain
+
+Name: P_PAT_OVSpd_AccLim_Acc1
+Type: F32
+Value: 0.16
+Scaling: 1
+Unit: rpm/s*s
+
+Name: P_PAT_OVSpd_AccLim_Acc2
+Type: F32
+Value: 0.5
+Scaling: 1
+Unit: rpm/s*s
+
+Name: P_PAT_OVSpd_AccLim_PitchDeg
+Type: S32
+Value: 3.00
+Scaling: 100
+Unit: deg
+
+# INDIVIDUAL PITCH
+
+Name: P_PAT_IndividualPitch_Enable
+Type: U8
+Value: 1
+Scaling: 1
+Unit: bool
+
+Name: P_PAT_PitchSpeedMax_IP
+Type: U32
+Value: 2
+Scaling: 100
+Unit: deg/s
+
+Name: P_PAT_IP_MaxCPAngleIPOp
+Type: S32
+Value: 40
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_IP_MaxDeg
+Type: S32
+Value: 2
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_IP_MinDeg
+Type: S32
+Value: -2
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_IP_WindDev_Angle_1
+Type: S16
+Value: 25
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_IP_WindDev_Angle_2
+Type: S16
+Value: 45
+Scaling: 100
+Unit: deg
+
+Name: P_PAT_IP_WindDev_IPAngle
+Type: S32
+Value: 2
+Scaling: 100
+Unit: deg
+
+# WIND
+
+#10min avg wind stop
+Name: P_WindSpeedMaxON
+Type: U16
+Value: 25
+Scaling: 100
+Unit: m/s
+
+#10min avg wind reset
+Name: P_WindSpeedMaxOFF
+Type: U16
+Value: 23
+Scaling: 100
+Unit: m/s
+
+#3s max wind
+Name: P_WindSpeedMaxMaxON
+Type: U16
+Value: 30
+Scaling: 100
+Unit: m/s
+
+#3s max wind reset
+Name: P_WindSpeedMaxMaxOFF
+Type: U16
+Value: 25
+Scaling: 100
+Unit: m/s
+
+#out of wind 30s max angle
+Name: P_YAW_OutOfWindDeg
+Type: U16
+Value: 15
+Scaling: 10
+Unit: deg
+
+#out of wind 30s min wind
+Name: P_YAW_OutOfWindSpeed
+Type: U16
+Value: 5
+Scaling: 100
+Unit: m/s
+
+#out of wind 3s max angle 1
+Name: P_YAW_OutOfWindDeg1
+Type: U16
+Value: 40
+Scaling: 10
+Unit: deg
+
+#out of wind 3s max angle 2
+Name: P_YAW_OutOfWindDeg2
+Type: U16
+Value: 25
+Scaling: 10
+Unit: deg
+
+#out of wind 3s wind 1
+Name: P_YAW_OutOfWindSpeed1
+Type: U16
+Value: 5
+Scaling: 100
+Unit: m/s
+
+# out of wind 3s wind 2
+Name: P_YAW_OutOfWindSpeed2
+Type: U16
+Value: 12
+Scaling: 100
+Unit: m/s
+
+
+
+# MISCELLANEOUS
+
+Name: P_CNV_MaxPowerSP_0
+Type: S16
+Value: 875
+Scaling: 10
+Unit: kW
+
+Name: P_CNV_MaxPowerSP_1
+Type: S16
+Value: 875
+Scaling: 10
+Unit: kW
+
+Name: P_CNV_MaxPowerSP_2
+Type: S16
+Value: 875
+Scaling: 10
+Unit: kW
+
+Name: P_CNV_MaxPowerSP_3
+Type: S16
+Value: 875
+Scaling: 10
+Unit: kW
+
+Name: P_MaxPower600s
+Type: S32
+Value: 3600
+Scaling: 1000
+Unit: kW
+
+Name: P_MaxPower30s
+Type: S32
+Value: 3700
+Scaling: 1000
+Unit: kW
+
+Name: P_MaxPower1s
+Type: S32
+Value: 3800
+Scaling: 1000
+Unit: kW
+
+Name: P_PM_P_Max_kW
+Type: S32
+Value: 3000
+Scaling: 1000
+Unit: kW
+
+Name: P_PM_P_Sp_RateLim_Enable
+Type: U8
+Value: 0
+Scaling: 1
+Unit: bool
+
+Name: P_CNV_PowerSP_RateInc
+Type: S32
+Value: 1000
+Scaling: 10
+Unit: kW/s
+
+Name: P_CNV_PowerSP_RateDec
+Type: S32
+Value: 1000
+Scaling: 10
+Unit: kW/s

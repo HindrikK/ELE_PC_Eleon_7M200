@@ -1,0 +1,29 @@
+<Type>412</Type>
+<Target Type='CPU'>
+  <BLProject>P09564</BLProject>
+  <BLRevision>1.1.0</BLRevision>
+  <BLFile>I:\wpline\412\WPL404CPU_BL_1_1_0.crc</BLFile>
+  <AppProject>P09564</AppProject>
+  <AppRevision>1.1.1</AppRevision>
+  <AppFile>I:\wpline\412\WPL404CPU_APP_1_1_1.crc</AppFile>
+</Target>
+<Target Type='SUB_TARGET_10'>
+  <AppProject>P10574</AppProject>
+  <AppRevision>1.1.0</AppRevision>
+  <AppFile>I:\wpline\412\WPL50CPU_APP_1_1_0.crc</AppFile>
+</Target>
+<Target Type='SUB_TARGET_20'>
+  <AppProject>P10574</AppProject>
+  <AppRevision>1.1.0</AppRevision>
+  <AppFile>I:\wpline\412\WPL50CPU_APP_1_1_0.crc</AppFile>
+</Target>
+<Target Type='SUB_TARGET_30'>
+  <AppProject>P10574</AppProject>
+  <AppRevision>1.1.0</AppRevision>
+  <AppFile>I:\wpline\412\WPL50CPU_APP_1_1_0.crc</AppFile>
+</Target>
+<Target Type='SUB_TARGET_40'>
+  <AppProject>P10574</AppProject>
+  <AppRevision>1.1.0</AppRevision>
+  <AppFile>I:\wpline\412\WPL50CPU_APP_1_1_0.crc</AppFile>
+</Target>

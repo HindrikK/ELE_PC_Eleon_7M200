@@ -1,0 +1,1132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Operate_MT_Type2.c">
+      <Filter>Operate</Filter>
+    </ClCompile>
+    <ClCompile Include="Operate_MT_Type2_Conf.c">
+      <Filter>Operate</Filter>
+    </ClCompile>
+    <ClCompile Include="Yaw_MK1.c">
+      <Filter>Yaw MK1</Filter>
+    </ClCompile>
+    <ClCompile Include="Yaw_MK1_Conf.c">
+      <Filter>Yaw MK1</Filter>
+    </ClCompile>
+    <ClCompile Include="YawMotorControl_MK1.c">
+      <Filter>Yaw Motor Control</Filter>
+    </ClCompile>
+    <ClCompile Include="YawMotorControl_MK1_Conf.c">
+      <Filter>Yaw Motor Control</Filter>
+    </ClCompile>
+    <ClCompile Include="YawErrorCodes.c">
+      <Filter>Yaw Motor Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Info.c">
+      <Filter>Info</Filter>
+    </ClCompile>
+    <ClCompile Include="Info_Conf.c">
+      <Filter>Info</Filter>
+    </ClCompile>
+    <ClCompile Include="Wind.c">
+      <Filter>Wind</Filter>
+    </ClCompile>
+    <ClCompile Include="Wind_Conf.c">
+      <Filter>Wind</Filter>
+    </ClCompile>
+    <ClCompile Include="WindDirection.c">
+      <Filter>WindDirection</Filter>
+    </ClCompile>
+    <ClCompile Include="WindDirection_Conf.c">
+      <Filter>WindDirection</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.c">
+      <Filter>Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid_Conf.c">
+      <Filter>Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="WindSpeed.c">
+      <Filter>WindSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="WindSpeed_Conf.c">
+      <Filter>WindSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="Torque.c">
+      <Filter>Torque</Filter>
+    </ClCompile>
+    <ClCompile Include="Torque_Conf.c">
+      <Filter>Torque</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherSensor2.c">
+      <Filter>Weather Sensor 2</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherSensor2_Conf.c">
+      <Filter>Weather Sensor 2</Filter>
+    </ClCompile>
+    <ClCompile Include="OutdoorTemperature.c">
+      <Filter>OutdoorTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="OutdoorTemperature_Conf.c">
+      <Filter>OutdoorTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="Generator.c">
+      <Filter>Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Generator_Conf.c">
+      <Filter>Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="CATdrv.c">
+      <Filter>FeCon Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="CATlib.c">
+      <Filter>FeCon Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter1_MT_Type1.c">
+      <Filter>Fecon1</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter1_MT_Type1_Conf.c">
+      <Filter>Fecon1</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter2_MT_Type1.c">
+      <Filter>Fecon2</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter2_MT_Type1_Conf.c">
+      <Filter>Fecon2</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter3_MT_Type1.c">
+      <Filter>Fecon3</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter3_MT_Type1_Conf.c">
+      <Filter>Fecon3</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter4_MT_Type1.c">
+      <Filter>Fecon4</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter4_MT_Type1_Conf.c">
+      <Filter>Fecon4</Filter>
+    </ClCompile>
+    <ClCompile Include="LVRT.c">
+      <Filter>LVRT</Filter>
+    </ClCompile>
+    <ClCompile Include="LVRT_Conf.c">
+      <Filter>LVRT</Filter>
+    </ClCompile>
+    <ClCompile Include="FRT_Conf.c">
+      <Filter>FRT</Filter>
+    </ClCompile>
+    <ClCompile Include="FRT.c">
+      <Filter>FRT</Filter>
+    </ClCompile>
+    <ClCompile Include="SafetySystem_MT_GL2010.c">
+      <Filter>Safety System</Filter>
+    </ClCompile>
+    <ClCompile Include="SafetySystem_MT_GL2010_Conf.c">
+      <Filter>Safety System</Filter>
+    </ClCompile>
+    <ClCompile Include="SafetyChain_MT_GL20102ManStop.c">
+      <Filter>Safety chain</Filter>
+    </ClCompile>
+    <ClCompile Include="SafetyChain_MT_GL20102ManStop_Conf.c">
+      <Filter>Safety chain</Filter>
+    </ClCompile>
+    <ClCompile Include="EStopChain_MT_GL20101ExtStop.c">
+      <Filter>E-Stop Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="EStopChain_MT_GL20101ExtStop_Conf.c">
+      <Filter>E-Stop Chain</Filter>
+    </ClCompile>
+    <ClCompile Include="Version.c">
+      <Filter>Version</Filter>
+    </ClCompile>
+    <ClCompile Include="Version_Conf.c">
+      <Filter>Version</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerManagement.c">
+      <Filter>Power Management</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerManagement_Conf.c">
+      <Filter>Power Management</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerCurve.c">
+      <Filter>Power Curve</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerCurve_Conf.c">
+      <Filter>Power Curve</Filter>
+    </ClCompile>
+    <ClCompile Include="WindSpeedPower_Normalization.c">
+      <Filter>WindSpeedPower Normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="WindSpeedPower_Normalization_Conf.c">
+      <Filter>WindSpeedPower Normalization</Filter>
+    </ClCompile>
+    <ClCompile Include="AirPressure.c">
+      <Filter>Air Pressure</Filter>
+    </ClCompile>
+    <ClCompile Include="AirPressure_Conf.c">
+      <Filter>Air Pressure</Filter>
+    </ClCompile>
+    <ClCompile Include="Brake.c">
+      <Filter>Brake</Filter>
+    </ClCompile>
+    <ClCompile Include="Brake_Conf.c">
+      <Filter>Brake</Filter>
+    </ClCompile>
+    <ClCompile Include="Nacelle.c">
+      <Filter>Nacelle</Filter>
+    </ClCompile>
+    <ClCompile Include="Nacelle_Conf.c">
+      <Filter>Nacelle</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformer.c">
+      <Filter>Transformer</Filter>
+    </ClCompile>
+    <ClCompile Include="Transformer_Conf.c">
+      <Filter>Transformer</Filter>
+    </ClCompile>
+    <ClCompile Include="LubricationYaw_MT_Type1.c">
+      <Filter>Lubrication Yaw</Filter>
+    </ClCompile>
+    <ClCompile Include="LubricationYaw_MT_Type1_Conf.c">
+      <Filter>Lubrication Yaw</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_Main_Bearing_MT_Type1.c">
+      <Filter>Lubrication main bearing</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_Main_Bearing_MT_Type1_Conf.c">
+      <Filter>Lubrication main bearing</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_Pitch_Pinion_MT_Type1.c">
+      <Filter>Lubrication pitch pinion</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_Pitch_Pinion_MT_Type1_Conf.c">
+      <Filter>Lubrication pitch pinion</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_MT_Type1.c">
+      <Filter>Lubrication</Filter>
+    </ClCompile>
+    <ClCompile Include="Lubrication_MT_Type1_Conf.c">
+      <Filter>Lubrication</Filter>
+    </ClCompile>
+    <ClCompile Include="InverterCooling_MT_Type1.c">
+      <Filter>Inverter cooling</Filter>
+    </ClCompile>
+    <ClCompile Include="InverterCooling_MT_Type1_Conf.c">
+      <Filter>Inverter cooling</Filter>
+    </ClCompile>
+    <ClCompile Include="BladeController_emulator.c">
+      <Filter>Blade Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="BladeController_emulator_Conf.c">
+      <Filter>Blade Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="PitchAndTorque.c">
+      <Filter>PitchAndTorque</Filter>
+    </ClCompile>
+    <ClCompile Include="PitchAndTorque_Conf.c">
+      <Filter>PitchAndTorque</Filter>
+    </ClCompile>
+    <ClCompile Include="VibrationMonitoringEmulator.c">
+      <Filter>Vibration Monitoring</Filter>
+    </ClCompile>
+    <ClCompile Include="VibrationMonitoringEmulator_Conf.c">
+      <Filter>Vibration Monitoring</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter_FeConGmbH_Type1.c">
+      <Filter>FeCon Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="FeConConverter_FeConGmbH_Type1_Conf.c">
+      <Filter>FeCon Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBearingPressure.c">
+      <Filter>Main Bearing Pressure</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBearingPressure_Conf.c">
+      <Filter>Main Bearing Pressure</Filter>
+    </ClCompile>
+    <ClCompile Include="Panels.c">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Panels_Conf.c">
+      <Filter>Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="SurgeProtection.c">
+      <Filter>Surge Protection</Filter>
+    </ClCompile>
+    <ClCompile Include="SurgeProtection_Conf.c">
+      <Filter>Surge Protection</Filter>
+    </ClCompile>
+    <ClCompile Include="WindRose.c">
+      <Filter>Wind Rose</Filter>
+    </ClCompile>
+    <ClCompile Include="WindRose_Conf.c">
+      <Filter>Wind Rose</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInterface.c">
+      <Filter>File Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="FileInterface_Conf.c">
+      <Filter>File Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="CMS.c">
+      <Filter>CMS</Filter>
+    </ClCompile>
+    <ClCompile Include="CMS_Conf.c">
+      <Filter>CMS</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightWarningLight.c">
+      <Filter>Flight Warning Light</Filter>
+    </ClCompile>
+    <ClCompile Include="FlightWarningLight_Conf.c">
+      <Filter>Flight Warning Light</Filter>
+    </ClCompile>
+    <ClCompile Include="UPS1.c">
+      <Filter>Ups Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="UPS1_Conf.c">
+      <Filter>Ups Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="UPS.c">
+      <Filter>UPS Tower Base</Filter>
+    </ClCompile>
+    <ClCompile Include="UPS_Conf.c">
+      <Filter>UPS Tower Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Hub_MT_Type1.c">
+      <Filter>Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="Hub_MT_Type1_Conf.c">
+      <Filter>Hub</Filter>
+    </ClCompile>
+    <ClCompile Include="NacelleAcceleration.c">
+      <Filter>Nacelle Acceleration</Filter>
+    </ClCompile>
+    <ClCompile Include="NacelleAcceleration_Conf.c">
+      <Filter>Nacelle Acceleration</Filter>
+    </ClCompile>
+    <ClCompile Include="Shutdown.c">
+      <Filter>Shutdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Shutdown_Conf.c">
+      <Filter>Shutdown</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerResonansTime.c">
+      <Filter>Tower resonance</Filter>
+    </ClCompile>
+    <ClCompile Include="TowerResonansTime_Conf.c">
+      <Filter>Tower resonance</Filter>
+    </ClCompile>
+    <ClCompile Include="Towerbase.c">
+      <Filter>Tower Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Towerbase_Conf.c">
+      <Filter>Tower Base</Filter>
+    </ClCompile>
+    <ClCompile Include="InitIo.c">
+      <Filter>mainPepProjFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="drivers.c">
+      <Filter>mainPepProjFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="mainApplication.c" />
+    <ClCompile Include="CustomEleonScan.c" />
+    <ClCompile Include="DLL_simu.c">
+      <Filter>DLL SIMU</Filter>
+    </ClCompile>
+    <ClCompile Include="DLL_simu_Conf.c">
+      <Filter>DLL SIMU</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c" />
+    <ClCompile Include="Libraries\EleonLib\Acceleration_Limiter.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Aver_t2_v1.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Buffer_FIFO.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Buffer_FIFO_S32.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Convert.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\CustomLog.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Derivative.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Filter_Average.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_Down.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_Up.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_UpDown.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_UpDown_F32.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_v2.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\IEC104_Database.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\IEC104_Slave.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Linear_Conversion.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\List.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator_2.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator_3.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\PID_Regulator_3.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Rate_Limiter.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Aver_t1_v3.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Backup_t1_v1.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Circle_t1_v4.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Event_t1_v3.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\FrqRpm_Drv_t2_v1.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\general.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Hash_t1_v1.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Io_t1_v5.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\LinearScale_Drv_t1_v1.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\MID2STAT.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Mita.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Timer_t1_v3.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\VarArrayMacros.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\VarArrayMenus.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaLib\Various_t1_v3.c">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaOSApps\Menu_Server.c">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaOSApps\MitaOSApps_main.c">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaOSApps\StatusCodes_Eleon.c">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\MitaOSApps\StatusCodes_Eleon_Conf.c">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerReduction.c">
+      <Filter>Power Reduction</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerReduction_Conf.c">
+      <Filter>Power Reduction</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorCooling_MT_Type1.c">
+      <Filter>Generator Cooling</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorCooling_MT_Type1_Conf.c">
+      <Filter>Generator Cooling</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\Aver_Bearing.c">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Loss_Counter.c">
+      <Filter>Loss Counter</Filter>
+    </ClCompile>
+    <ClCompile Include="Loss_Counter_Conf.c">
+      <Filter>Loss Counter</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter_Import.c" />
+    <ClCompile Include="LiebherrConverter.c">
+      <Filter>LiebherrConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="LiebherrConverter_Conf.c">
+      <Filter>LiebherrConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="Power_Converter.c">
+      <Filter>Power_Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="Power_Converter_Conf.c">
+      <Filter>Power_Converter</Filter>
+    </ClCompile>
+    <ClCompile Include="LCNV_Comm.c">
+      <Filter>LiebherrConverter</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\EleonLib\IEC104_Client.c" />
+    <ClCompile Include="DLL\Bladed_DISCON_Interface.c">
+      <Filter>DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="DLL\DLL_InOut.c">
+      <Filter>DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="DLL\Eleon_DLL_API.c">
+      <Filter>DLL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Operate_MT_Type2.h">
+      <Filter>Operate</Filter>
+    </ClInclude>
+    <ClInclude Include="Yaw_MK1.h">
+      <Filter>Yaw MK1</Filter>
+    </ClInclude>
+    <ClInclude Include="YawMotorControl_MK1.h">
+      <Filter>Yaw Motor Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Info.h">
+      <Filter>Info</Filter>
+    </ClInclude>
+    <ClInclude Include="Wind.h">
+      <Filter>Wind</Filter>
+    </ClInclude>
+    <ClInclude Include="WindDirection.h">
+      <Filter>WindDirection</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="WindSpeed.h">
+      <Filter>WindSpeed</Filter>
+    </ClInclude>
+    <ClInclude Include="Torque.h">
+      <Filter>Torque</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherSensor2.h">
+      <Filter>Weather Sensor 2</Filter>
+    </ClInclude>
+    <ClInclude Include="OutdoorTemperature.h">
+      <Filter>OutdoorTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="Generator.h">
+      <Filter>Generator</Filter>
+    </ClInclude>
+    <ClInclude Include="CATdrv.h">
+      <Filter>FeCon Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="CATlib.h">
+      <Filter>FeCon Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="CATsetup.h">
+      <Filter>FeCon Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="FeConConverter1_MT_Type1.h">
+      <Filter>Fecon1</Filter>
+    </ClInclude>
+    <ClInclude Include="FeConConverter2_MT_Type1.h">
+      <Filter>Fecon2</Filter>
+    </ClInclude>
+    <ClInclude Include="FeConConverter3_MT_Type1.h">
+      <Filter>Fecon3</Filter>
+    </ClInclude>
+    <ClInclude Include="FeConConverter4_MT_Type1.h">
+      <Filter>Fecon4</Filter>
+    </ClInclude>
+    <ClInclude Include="LVRT.h">
+      <Filter>LVRT</Filter>
+    </ClInclude>
+    <ClInclude Include="FRT.h">
+      <Filter>FRT</Filter>
+    </ClInclude>
+    <ClInclude Include="SafetySystem_MT_GL2010.h">
+      <Filter>Safety System</Filter>
+    </ClInclude>
+    <ClInclude Include="SafetyChain_MT_GL20102ManStop.h">
+      <Filter>Safety chain</Filter>
+    </ClInclude>
+    <ClInclude Include="EStopChain_MT_GL20101ExtStop.h">
+      <Filter>E-Stop Chain</Filter>
+    </ClInclude>
+    <ClInclude Include="Version.h">
+      <Filter>Version</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerManagement.h">
+      <Filter>Power Management</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerCurve.h">
+      <Filter>Power Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="WindSpeedPower_Normalization.h">
+      <Filter>WindSpeedPower Normalization</Filter>
+    </ClInclude>
+    <ClInclude Include="AirPressure.h">
+      <Filter>Air Pressure</Filter>
+    </ClInclude>
+    <ClInclude Include="Brake.h">
+      <Filter>Brake</Filter>
+    </ClInclude>
+    <ClInclude Include="Nacelle.h">
+      <Filter>Nacelle</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformer.h">
+      <Filter>Transformer</Filter>
+    </ClInclude>
+    <ClInclude Include="LubricationYaw_MT_Type1.h">
+      <Filter>Lubrication Yaw</Filter>
+    </ClInclude>
+    <ClInclude Include="Lubrication_Main_Bearing_MT_Type1.h">
+      <Filter>Lubrication main bearing</Filter>
+    </ClInclude>
+    <ClInclude Include="Lubrication_Pitch_Pinion_MT_Type1.h">
+      <Filter>Lubrication pitch pinion</Filter>
+    </ClInclude>
+    <ClInclude Include="Lubrication_MT_Type1.h">
+      <Filter>Lubrication</Filter>
+    </ClInclude>
+    <ClInclude Include="InverterCooling_MT_Type1.h">
+      <Filter>Inverter cooling</Filter>
+    </ClInclude>
+    <ClInclude Include="BladeController_emulator.h">
+      <Filter>Blade Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="PitchAndTorque.h">
+      <Filter>PitchAndTorque</Filter>
+    </ClInclude>
+    <ClInclude Include="VibrationMonitoringEmulator.h">
+      <Filter>Vibration Monitoring</Filter>
+    </ClInclude>
+    <ClInclude Include="FeConConverter_FeConGmbH_Type1.h">
+      <Filter>FeCon Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="MainBearingPressure.h">
+      <Filter>Main Bearing Pressure</Filter>
+    </ClInclude>
+    <ClInclude Include="Panels.h">
+      <Filter>Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="SurgeProtection.h">
+      <Filter>Surge Protection</Filter>
+    </ClInclude>
+    <ClInclude Include="WindRose.h">
+      <Filter>Wind Rose</Filter>
+    </ClInclude>
+    <ClInclude Include="FileInterface.h">
+      <Filter>File Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CMS.h">
+      <Filter>CMS</Filter>
+    </ClInclude>
+    <ClInclude Include="FlightWarningLight.h">
+      <Filter>Flight Warning Light</Filter>
+    </ClInclude>
+    <ClInclude Include="UPS1.h">
+      <Filter>Ups Hub</Filter>
+    </ClInclude>
+    <ClInclude Include="UPS.h">
+      <Filter>UPS Tower Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Hub_MT_Type1.h">
+      <Filter>Hub</Filter>
+    </ClInclude>
+    <ClInclude Include="NacelleAcceleration.h">
+      <Filter>Nacelle Acceleration</Filter>
+    </ClInclude>
+    <ClInclude Include="Shutdown.h">
+      <Filter>Shutdown</Filter>
+    </ClInclude>
+    <ClInclude Include="TowerResonansTime.h">
+      <Filter>Tower resonance</Filter>
+    </ClInclude>
+    <ClInclude Include="Towerbase.h">
+      <Filter>Tower Base</Filter>
+    </ClInclude>
+    <ClInclude Include="InitIo.h">
+      <Filter>mainPepProjFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="turbdef.h">
+      <Filter>mainPepProjFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="drivers.h">
+      <Filter>mainPepProjFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomEleonScan.h" />
+    <ClInclude Include="DLL_simu.h">
+      <Filter>DLL SIMU</Filter>
+    </ClInclude>
+    <ClInclude Include="os_main.h">
+      <Filter>mainPepProjFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="main.h">
+      <Filter>mainPepProjFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Acceleration_Limiter.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Aver_t2_v1.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Buffer_FIFO.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Buffer_FIFO_S32.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Convert.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\CustomLog.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Derivative.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Filter_Average.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_Down.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_Up.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_UpDown.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_UpDown_F32.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_v2.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\IEC104_Database.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\IEC104_Slave.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Linear_Conversion.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\List.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator_2.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator_3.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\PID_Regulator_3.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Rate_Limiter.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\app_cmd.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Aver_t1_v3.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Backup_t1_v1.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Circle_t1_v4.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\com_mgr_defs.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\errcodes.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Event_t1_v3.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\FrqRpm_Drv_t2_v1.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\general.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Hash_t1_v1.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Io_t1_v5.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\lib_main.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\LinearScale_Drv_t1_v1.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\m_def.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\menu_macros.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\menudefs.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\MID2STAT.H">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Mita.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\os_lib.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\os_main.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\os_sts.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\OS_WD.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\OS4x00.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\osdb.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\password.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\PCDISK.H">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\SOCKDEFS.H">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\stscode_macros.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Timer_t1_v3.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\turbdef.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\types.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\unit.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\VarArrayMacros.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\VarArrayMenus.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\vardb_macros.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\Various_t1_v3.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaLib\VarMacros.h">
+      <Filter>Libraries\MitaLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaOSApps\Menu_Server.h">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaOSApps\MitaOSApps_main.h">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\MitaOSApps\StatusCodes_Eleon.h">
+      <Filter>Libraries\MitaOSApps</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerReduction.h">
+      <Filter>Power Reduction</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorCooling_MT_Type1.h">
+      <Filter>Generator Cooling</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\EleonLib\Aver_Bearing.h">
+      <Filter>Libraries\EleonLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Loss_Counter.h">
+      <Filter>Loss Counter</Filter>
+    </ClInclude>
+    <ClInclude Include="Parameter_Import.h" />
+    <ClInclude Include="LiebherrConverter.h">
+      <Filter>LiebherrConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="Power_Converter.h">
+      <Filter>Power_Converter</Filter>
+    </ClInclude>
+    <ClInclude Include="LCNV_Comm.h">
+      <Filter>LiebherrConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="Configurator.h">
+      <Filter>Configurator</Filter>
+    </ClInclude>
+    <ClInclude Include="Turbine_DLL.h" />
+    <ClInclude Include="Libraries\EleonLib\IEC104_Client.h" />
+    <ClInclude Include="DLL\Bladed_DISCON_Interface.h">
+      <Filter>DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="DLL\Bladed_SwapArray_Defs.h">
+      <Filter>DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="DLL\DLL_InOut.h">
+      <Filter>DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="DLL\Eleon_DLL_API.h">
+      <Filter>DLL</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Operate">
+      <UniqueIdentifier>{0d984334-940d-42a4-a4ef-db47b42586d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Yaw MK1">
+      <UniqueIdentifier>{1fbd5b3e-13fb-49c5-a1a9-2dfa170ad0ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Yaw Motor Control">
+      <UniqueIdentifier>{2f2a82cd-1b10-410e-ac89-be8b08bf0a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Info">
+      <UniqueIdentifier>{f3ed7aa2-585b-4244-b057-135eb1d1b48b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blade Controller">
+      <UniqueIdentifier>{abe69f81-7437-4e31-8283-149a9ba8ee8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wind">
+      <UniqueIdentifier>{7de89be2-51f4-40a1-ae70-48854ec17d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindDirection">
+      <UniqueIdentifier>{ea1be6d1-f433-4c37-8422-79fd517139e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Weather Sensor 2">
+      <UniqueIdentifier>{b8f49796-eb4c-4994-966f-b8b02fb31768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Grid">
+      <UniqueIdentifier>{42469517-c450-48e8-b8bc-ff76855250bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindSpeed">
+      <UniqueIdentifier>{65b89890-2c95-4590-a39a-7916f736fad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mainPepProjFiles">
+      <UniqueIdentifier>{90830908-7045-4c05-8ec5-d93b06de28bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Torque">
+      <UniqueIdentifier>{a4c0ee08-53e8-4ab1-a995-2c32a5e27570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OutdoorTemperature">
+      <UniqueIdentifier>{77511260-6c76-4d30-ab26-1e48b5140dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generator">
+      <UniqueIdentifier>{9778b3f5-de37-418b-8956-c878cdf6fd04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FeCon Converter">
+      <UniqueIdentifier>{a543e947-2a8f-4b04-8322-e88b9c92493e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fecon1">
+      <UniqueIdentifier>{72b778f0-2f2c-4b2e-9776-69c04af0aa3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fecon2">
+      <UniqueIdentifier>{219aab97-889a-4a08-abf7-08af013b3c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fecon3">
+      <UniqueIdentifier>{1adf5b86-c67f-4f3c-a45d-582169a10f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fecon4">
+      <UniqueIdentifier>{31c700ad-8588-4c4f-b4a5-8719071ba95d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LVRT">
+      <UniqueIdentifier>{69cd4ffe-ea23-4ad9-93d0-d9f13754f6f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FRT">
+      <UniqueIdentifier>{096e7a04-1239-4f0c-a975-833531797930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Safety System">
+      <UniqueIdentifier>{fed20e50-ed74-4e82-a068-d8e93ed43499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Safety chain">
+      <UniqueIdentifier>{a86302e9-d227-4b51-989e-1a4d2878864d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="E-Stop Chain">
+      <UniqueIdentifier>{0b36c691-808c-4415-9866-6a7a0a754d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Version">
+      <UniqueIdentifier>{2d6a97bd-83b8-49b9-a15d-6abc1617643d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Power Management">
+      <UniqueIdentifier>{12c6f5da-fb0a-4de8-bf7b-11a62ec3a3b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Power Curve">
+      <UniqueIdentifier>{e646916c-a358-48b9-bd47-53ea007641e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindSpeedPower Normalization">
+      <UniqueIdentifier>{6a4684b2-d294-40ee-99e5-94f7224f2ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Air Pressure">
+      <UniqueIdentifier>{0a47788f-aa11-40b2-8fe0-614c096cb6c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Brake">
+      <UniqueIdentifier>{6312e095-3332-4302-969b-e96d87141770}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generator Cooling">
+      <UniqueIdentifier>{72307fe0-9a65-472a-8f2a-053f8a3b7257}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nacelle">
+      <UniqueIdentifier>{9911c25d-7445-491f-b4ba-e8a713ed44f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Transformer">
+      <UniqueIdentifier>{0ad0a890-f301-4bef-b5a2-91a68ac83f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lubrication main bearing">
+      <UniqueIdentifier>{cdd9fa4f-1a3a-4c6d-b257-11ede15c6b35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lubrication pitch pinion">
+      <UniqueIdentifier>{66727733-293b-4944-9b36-0567326b6b49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lubrication Yaw">
+      <UniqueIdentifier>{fe22c2e9-f351-4239-b5cb-6cfc852ed861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lubrication">
+      <UniqueIdentifier>{41d78708-89e1-4b86-aa02-3c3710c6a8a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inverter cooling">
+      <UniqueIdentifier>{1b92eca4-f10c-44f5-8e21-135b2c85032d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PitchAndTorque">
+      <UniqueIdentifier>{922d5efd-d0f9-4906-bcf9-3106b1790862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vibration Monitoring">
+      <UniqueIdentifier>{2abd90a9-23b2-41e0-aea9-1bebab00ec91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main Bearing Pressure">
+      <UniqueIdentifier>{f0a79b6c-1a78-48df-ad8f-7bf545856172}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Panels">
+      <UniqueIdentifier>{e4bb0118-a504-469b-870e-4acaabf3a93d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Surge Protection">
+      <UniqueIdentifier>{2273676f-1a6f-49d5-a03b-79588cf0e721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Wind Rose">
+      <UniqueIdentifier>{f3594b55-6a17-42af-824b-ed1672d421d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File Interface">
+      <UniqueIdentifier>{01d43d9c-9d93-4704-b036-d5bdeefb2b96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMS">
+      <UniqueIdentifier>{55b314e5-036b-4d77-bf2e-bb7c1c4cee28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Flight Warning Light">
+      <UniqueIdentifier>{e1383726-2938-4705-a6e8-9f733bc7ea11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ups Hub">
+      <UniqueIdentifier>{abf483d6-917c-4475-b7b0-8152e8285026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UPS Tower Base">
+      <UniqueIdentifier>{48798088-b017-4f70-8c65-3faeca165e44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hub">
+      <UniqueIdentifier>{62e7044f-72e9-43fd-9399-0178714f09c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nacelle Acceleration">
+      <UniqueIdentifier>{6d8b68b6-b604-4dcc-a06d-2b5d1ec3b994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blade Loads">
+      <UniqueIdentifier>{1a72789c-ee2f-448d-8e6c-86a90e190741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shutdown">
+      <UniqueIdentifier>{37122a9b-957a-47ab-8cf8-534219c0b0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tower resonance">
+      <UniqueIdentifier>{7cb5cb25-bf43-429e-b3bd-eff9abf66ccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lidar">
+      <UniqueIdentifier>{17c36e6b-83e1-48d6-a647-390b0c1c13aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tower Base">
+      <UniqueIdentifier>{f3ff1f95-2518-43f7-a2d5-57b62764b150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DLL SIMU">
+      <UniqueIdentifier>{8f49420f-4d4a-467f-b00a-d57f80163c1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries">
+      <UniqueIdentifier>{6fe87e65-8f92-46f4-9f69-302e2462c549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\EleonLib">
+      <UniqueIdentifier>{9259d829-9d9f-4f8c-9615-6b8269bf2c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\MitaLib">
+      <UniqueIdentifier>{a1b61b29-0a09-4581-9da1-f9c403fc8673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libraries\MitaOSApps">
+      <UniqueIdentifier>{b47c030e-3bb6-44a7-b896-2be675bc61f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Power Reduction">
+      <UniqueIdentifier>{c4168ec3-405d-4a06-8ac2-94fb2dbf8715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Loss Counter">
+      <UniqueIdentifier>{f7beb2b7-85ff-46ad-9caa-c5b32e67e449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LiebherrConverter">
+      <UniqueIdentifier>{891ca2fc-0ece-4f91-8a1d-4e57e4299bc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Power_Converter">
+      <UniqueIdentifier>{bdff03c3-af3f-4c78-8ae3-478a482e5b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Configurator">
+      <UniqueIdentifier>{efb32175-c094-4ab8-95d3-39c25bccb081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DLL">
+      <UniqueIdentifier>{c784e9c3-6d68-4819-b29b-1a409b597a1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="MODULE_CONFIG.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WP4200_Operate.rc" />
+  </ItemGroup>
+</Project>

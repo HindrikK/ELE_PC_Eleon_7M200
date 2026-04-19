@@ -1,0 +1,23 @@
+<Type>151</Type>
+<HWProject>P04509</HWProject>
+<Target Type='CPU'>
+  <BLProject>P07508</BLProject>
+  <BLRevision>4.0.9</BLRevision>
+  <BLFile>I:\wpline\151\WPL151CPU_BL_Mk_I_4_0_9.crc</BLFile>
+  <AppProject>P07508</AppProject>
+  <AppRevision>4.1.1</AppRevision>
+  <AppFile>I:\wpline\151\WPL151CPU_APP_MK_I_4_1_1.crc</AppFile>
+</Target>
+<Target Type='CPLD'>
+  <AppProject>P04508</AppProject>
+  <AppRevision>1.0.1</AppRevision>
+  <AppFile>I:\wpline\151\WPL151CPLD_1_0_1.crc</AppFile>
+</Target>
+<Target Type='DSP'>
+  <BLProject>P07508</BLProject>
+  <BLRevision>2.0.0</BLRevision>
+  <BLFile>I:\wpline\151\WPL151DSP_BL_2_0_0.crc</BLFile>
+  <AppProject>P07508</AppProject>
+  <AppRevision>4.0.0</AppRevision>
+  <AppFile>I:\wpline\151\WPL151DSP_APP_4_0_0.crc</AppFile>
+</Target>

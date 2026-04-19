@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release DLL|Win32">
+      <Configuration>Release DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5C5F4C2A-07C7-413F-B16A-D8B9F715BDA2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>WP4200_Operate</RootNamespace>
+    <ProjectName>Turbine_DLL</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(IncludePath)</IncludePath>
+    <LibraryPath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(IncludePath)</IncludePath>
+    <LibraryPath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(IncludePath)</IncludePath>
+    <LibraryPath>..\Turbine_DLL;Libraries\MitaLib;Libraries\MitaOSApps;Libraries\EleonLib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>
+      </Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;APP_ID= "1";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <PreprocessToFile>false</PreprocessToFile>
+      <LanguageStandard>Default</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(ProjectDir)MODULE_CONFIG.XML"  "$(OutDir)WP4x00\wpline"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>
+      </Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;APP_ID= "1";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessToFile>false</PreprocessToFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(ProjectDir)MODULE_CONFIG.XML"  "$(OutDir)WP4x00\wpline"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>
+      </Optimization>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;APP_ID= "1";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessToFile>false</PreprocessToFile>
+      <LanguageStandard>Default</LanguageStandard>
+      <CompileAs>CompileAsC</CompileAs>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AirPressure.c" />
+    <ClCompile Include="AirPressure_Conf.c" />
+    <ClCompile Include="BladeController_emulator.c" />
+    <ClCompile Include="BladeController_emulator_Conf.c" />
+    <ClCompile Include="Brake.c" />
+    <ClCompile Include="Brake_Conf.c" />
+    <ClCompile Include="CATdrv.c" />
+    <ClCompile Include="CATlib.c" />
+    <ClCompile Include="CMS.c" />
+    <ClCompile Include="CMS_Conf.c" />
+    <ClCompile Include="CustomEleonScan.c" />
+    <ClCompile Include="DLL\Bladed_DISCON_Interface.c" />
+    <ClCompile Include="DLL\DLL_InOut.c" />
+    <ClCompile Include="DLL\Eleon_DLL_API.c" />
+    <ClCompile Include="DLL_simu.c" />
+    <ClCompile Include="DLL_simu_Conf.c" />
+    <ClCompile Include="drivers.c" />
+    <ClCompile Include="EStopChain_MT_GL20101ExtStop.c" />
+    <ClCompile Include="EStopChain_MT_GL20101ExtStop_Conf.c" />
+    <ClCompile Include="FeConConverter1_MT_Type1.c" />
+    <ClCompile Include="FeConConverter1_MT_Type1_Conf.c" />
+    <ClCompile Include="FeConConverter2_MT_Type1.c" />
+    <ClCompile Include="FeConConverter2_MT_Type1_Conf.c" />
+    <ClCompile Include="FeConConverter3_MT_Type1.c" />
+    <ClCompile Include="FeConConverter3_MT_Type1_Conf.c" />
+    <ClCompile Include="FeConConverter4_MT_Type1.c" />
+    <ClCompile Include="FeConConverter4_MT_Type1_Conf.c" />
+    <ClCompile Include="FeConConverter_FeConGmbH_Type1.c" />
+    <ClCompile Include="FeConConverter_FeConGmbH_Type1_Conf.c" />
+    <ClCompile Include="FileInterface.c" />
+    <ClCompile Include="FileInterface_Conf.c" />
+    <ClCompile Include="FlightWarningLight.c" />
+    <ClCompile Include="FlightWarningLight_Conf.c" />
+    <ClCompile Include="FRT.c" />
+    <ClCompile Include="FRT_Conf.c" />
+    <ClCompile Include="Generator.c" />
+    <ClCompile Include="GeneratorCooling_MT_Type1.c" />
+    <ClCompile Include="GeneratorCooling_MT_Type1_Conf.c" />
+    <ClCompile Include="Generator_Conf.c" />
+    <ClCompile Include="Grid.c" />
+    <ClCompile Include="Grid_Conf.c" />
+    <ClCompile Include="Hub_MT_Type1.c" />
+    <ClCompile Include="Hub_MT_Type1_Conf.c" />
+    <ClCompile Include="Info.c" />
+    <ClCompile Include="Info_Conf.c" />
+    <ClCompile Include="InitIo.c" />
+    <ClCompile Include="InverterCooling_MT_Type1.c" />
+    <ClCompile Include="InverterCooling_MT_Type1_Conf.c" />
+    <ClCompile Include="LCNV_Comm.c" />
+    <ClCompile Include="Libraries\EleonLib\Acceleration_Limiter.c" />
+    <ClCompile Include="Libraries\EleonLib\Aver_Bearing.c" />
+    <ClCompile Include="Libraries\EleonLib\Aver_t2_v1.c" />
+    <ClCompile Include="Libraries\EleonLib\Buffer_FIFO.c" />
+    <ClCompile Include="Libraries\EleonLib\Buffer_FIFO_S32.c" />
+    <ClCompile Include="Libraries\EleonLib\Convert.c" />
+    <ClCompile Include="Libraries\EleonLib\CustomLog.c" />
+    <ClCompile Include="Libraries\EleonLib\Derivative.c" />
+    <ClCompile Include="Libraries\EleonLib\Filter_Average.c" />
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_Down.c" />
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_Up.c" />
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_UpDown.c" />
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_UpDown_F32.c" />
+    <ClCompile Include="Libraries\EleonLib\Hysteresis_v2.c" />
+    <ClCompile Include="Libraries\EleonLib\IEC104_Client.c" />
+    <ClCompile Include="Libraries\EleonLib\IEC104_Database.c" />
+    <ClCompile Include="Libraries\EleonLib\IEC104_Slave.c" />
+    <ClCompile Include="Libraries\EleonLib\Linear_Conversion.c" />
+    <ClCompile Include="Libraries\EleonLib\List.c" />
+    <ClCompile Include="Libraries\EleonLib\PID_Regulator_3.c" />
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator.c" />
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator_2.c" />
+    <ClCompile Include="Libraries\EleonLib\PI_Regulator_3.c" />
+    <ClCompile Include="Libraries\EleonLib\Rate_Limiter.c" />
+    <ClCompile Include="Libraries\MitaLib\Aver_t1_v3.c" />
+    <ClCompile Include="Libraries\MitaLib\Backup_t1_v1.c" />
+    <ClCompile Include="Libraries\MitaLib\Circle_t1_v4.c" />
+    <ClCompile Include="Libraries\MitaLib\Event_t1_v3.c" />
+    <ClCompile Include="Libraries\MitaLib\FrqRpm_Drv_t2_v1.c" />
+    <ClCompile Include="Libraries\MitaLib\general.c" />
+    <ClCompile Include="Libraries\MitaLib\Hash_t1_v1.c" />
+    <ClCompile Include="Libraries\MitaLib\Io_t1_v5.c" />
+    <ClCompile Include="Libraries\MitaLib\LinearScale_Drv_t1_v1.c" />
+    <ClCompile Include="Libraries\MitaLib\MID2STAT.c" />
+    <ClCompile Include="Libraries\MitaLib\Mita.c" />
+    <ClCompile Include="Libraries\MitaLib\Timer_t1_v3.c" />
+    <ClCompile Include="Libraries\MitaLib\VarArrayMacros.c" />
+    <ClCompile Include="Libraries\MitaLib\VarArrayMenus.c" />
+    <ClCompile Include="Libraries\MitaLib\Various_t1_v3.c" />
+    <ClCompile Include="Libraries\MitaOSApps\Menu_Server.c" />
+    <ClCompile Include="Libraries\MitaOSApps\MitaOSApps_main.c" />
+    <ClCompile Include="Libraries\MitaOSApps\StatusCodes_Eleon.c" />
+    <ClCompile Include="Libraries\MitaOSApps\StatusCodes_Eleon_Conf.c" />
+    <ClCompile Include="LiebherrConverter.c" />
+    <ClCompile Include="LiebherrConverter_Conf.c" />
+    <ClCompile Include="Loss_Counter.c" />
+    <ClCompile Include="Loss_Counter_Conf.c" />
+    <ClCompile Include="LubricationYaw_MT_Type1.c" />
+    <ClCompile Include="LubricationYaw_MT_Type1_Conf.c" />
+    <ClCompile Include="Lubrication_Main_Bearing_MT_Type1.c" />
+    <ClCompile Include="Lubrication_Main_Bearing_MT_Type1_Conf.c" />
+    <ClCompile Include="Lubrication_MT_Type1.c" />
+    <ClCompile Include="Lubrication_MT_Type1_Conf.c" />
+    <ClCompile Include="Lubrication_Pitch_Pinion_MT_Type1.c" />
+    <ClCompile Include="Lubrication_Pitch_Pinion_MT_Type1_Conf.c" />
+    <ClCompile Include="LVRT.c" />
+    <ClCompile Include="LVRT_Conf.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="mainApplication.c" />
+    <ClCompile Include="MainBearingPressure.c" />
+    <ClCompile Include="MainBearingPressure_Conf.c" />
+    <ClCompile Include="Nacelle.c" />
+    <ClCompile Include="NacelleAcceleration.c" />
+    <ClCompile Include="NacelleAcceleration_Conf.c" />
+    <ClCompile Include="Nacelle_Conf.c" />
+    <ClCompile Include="Operate_MT_Type2.c" />
+    <ClCompile Include="Operate_MT_Type2_Conf.c" />
+    <ClCompile Include="OutdoorTemperature.c" />
+    <ClCompile Include="OutdoorTemperature_Conf.c" />
+    <ClCompile Include="Panels.c" />
+    <ClCompile Include="Panels_Conf.c" />
+    <ClCompile Include="Parameter_Import.c" />
+    <ClCompile Include="PitchAndTorque.c" />
+    <ClCompile Include="PitchAndTorque_Conf.c" />
+    <ClCompile Include="PowerCurve.c" />
+    <ClCompile Include="PowerCurve_Conf.c" />
+    <ClCompile Include="PowerManagement.c" />
+    <ClCompile Include="PowerManagement_Conf.c" />
+    <ClCompile Include="PowerReduction.c" />
+    <ClCompile Include="PowerReduction_Conf.c" />
+    <ClCompile Include="Power_Converter.c" />
+    <ClCompile Include="Power_Converter_Conf.c" />
+    <ClCompile Include="SafetyChain_MT_GL20102ManStop.c" />
+    <ClCompile Include="SafetyChain_MT_GL20102ManStop_Conf.c" />
+    <ClCompile Include="SafetySystem_MT_GL2010.c" />
+    <ClCompile Include="SafetySystem_MT_GL2010_Conf.c" />
+    <ClCompile Include="Shutdown.c" />
+    <ClCompile Include="Shutdown_Conf.c" />
+    <ClCompile Include="SurgeProtection.c" />
+    <ClCompile Include="SurgeProtection_Conf.c" />
+    <ClCompile Include="Torque.c" />
+    <ClCompile Include="Torque_Conf.c" />
+    <ClCompile Include="Towerbase.c" />
+    <ClCompile Include="Towerbase_Conf.c" />
+    <ClCompile Include="TowerResonansTime.c" />
+    <ClCompile Include="TowerResonansTime_Conf.c" />
+    <ClCompile Include="Transformer.c" />
+    <ClCompile Include="Transformer_Conf.c" />
+    <ClCompile Include="UPS.c" />
+    <ClCompile Include="UPS1.c" />
+    <ClCompile Include="UPS1_Conf.c" />
+    <ClCompile Include="UPS_Conf.c" />
+    <ClCompile Include="Version.c" />
+    <ClCompile Include="Version_Conf.c" />
+    <ClCompile Include="VibrationMonitoringEmulator.c" />
+    <ClCompile Include="VibrationMonitoringEmulator_Conf.c" />
+    <ClCompile Include="WeatherSensor2.c" />
+    <ClCompile Include="WeatherSensor2_Conf.c" />
+    <ClCompile Include="Wind.c" />
+    <ClCompile Include="WindDirection.c" />
+    <ClCompile Include="WindDirection_Conf.c" />
+    <ClCompile Include="WindRose.c" />
+    <ClCompile Include="WindRose_Conf.c" />
+    <ClCompile Include="WindSpeed.c" />
+    <ClCompile Include="WindSpeedPower_Normalization.c" />
+    <ClCompile Include="WindSpeedPower_Normalization_Conf.c" />
+    <ClCompile Include="WindSpeed_Conf.c" />
+    <ClCompile Include="Wind_Conf.c" />
+    <ClCompile Include="YawErrorCodes.c" />
+    <ClCompile Include="YawMotorControl_MK1.c" />
+    <ClCompile Include="YawMotorControl_MK1_Conf.c" />
+    <ClCompile Include="Yaw_MK1.c" />
+    <ClCompile Include="Yaw_MK1_Conf.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirPressure.h" />
+    <ClInclude Include="BladeController_emulator.h" />
+    <ClInclude Include="Brake.h" />
+    <ClInclude Include="CATdrv.h" />
+    <ClInclude Include="CATlib.h" />
+    <ClInclude Include="CATsetup.h" />
+    <ClInclude Include="CMS.h" />
+    <ClInclude Include="Configurator.h" />
+    <ClInclude Include="CustomEleonScan.h" />
+    <ClInclude Include="DLL\Bladed_DISCON_Interface.h" />
+    <ClInclude Include="DLL\Bladed_SwapArray_Defs.h" />
+    <ClInclude Include="DLL\DLL_InOut.h" />
+    <ClInclude Include="DLL\Eleon_DLL_API.h" />
+    <ClInclude Include="DLL_simu.h" />
+    <ClInclude Include="drivers.h" />
+    <ClInclude Include="Turbine_DLL.h" />
+    <ClInclude Include="EStopChain_MT_GL20101ExtStop.h" />
+    <ClInclude Include="FeConConverter1_MT_Type1.h" />
+    <ClInclude Include="FeConConverter2_MT_Type1.h" />
+    <ClInclude Include="FeConConverter3_MT_Type1.h" />
+    <ClInclude Include="FeConConverter4_MT_Type1.h" />
+    <ClInclude Include="FeConConverter_FeConGmbH_Type1.h" />
+    <ClInclude Include="FileInterface.h" />
+    <ClInclude Include="FlightWarningLight.h" />
+    <ClInclude Include="FRT.h" />
+    <ClInclude Include="Generator.h" />
+    <ClInclude Include="GeneratorCooling_MT_Type1.h" />
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="Hub_MT_Type1.h" />
+    <ClInclude Include="Info.h" />
+    <ClInclude Include="InitIo.h" />
+    <ClInclude Include="InverterCooling_MT_Type1.h" />
+    <ClInclude Include="LCNV_Comm.h" />
+    <ClInclude Include="Libraries\EleonLib\Acceleration_Limiter.h" />
+    <ClInclude Include="Libraries\EleonLib\Aver_Bearing.h" />
+    <ClInclude Include="Libraries\EleonLib\Aver_t2_v1.h" />
+    <ClInclude Include="Libraries\EleonLib\Buffer_FIFO.h" />
+    <ClInclude Include="Libraries\EleonLib\Buffer_FIFO_S32.h" />
+    <ClInclude Include="Libraries\EleonLib\Convert.h" />
+    <ClInclude Include="Libraries\EleonLib\CustomLog.h" />
+    <ClInclude Include="Libraries\EleonLib\Derivative.h" />
+    <ClInclude Include="Libraries\EleonLib\Filter_Average.h" />
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_Down.h" />
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_Up.h" />
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_UpDown.h" />
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_UpDown_F32.h" />
+    <ClInclude Include="Libraries\EleonLib\Hysteresis_v2.h" />
+    <ClInclude Include="Libraries\EleonLib\IEC104_Database.h" />
+    <ClInclude Include="Libraries\EleonLib\IEC104_Client.h" />
+    <ClInclude Include="Libraries\EleonLib\IEC104_Slave.h" />
+    <ClInclude Include="Libraries\EleonLib\Linear_Conversion.h" />
+    <ClInclude Include="Libraries\EleonLib\List.h" />
+    <ClInclude Include="Libraries\EleonLib\PID_Regulator_3.h" />
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator.h" />
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator_2.h" />
+    <ClInclude Include="Libraries\EleonLib\PI_Regulator_3.h" />
+    <ClInclude Include="Libraries\EleonLib\Rate_Limiter.h" />
+    <ClInclude Include="Libraries\MitaLib\app_cmd.h" />
+    <ClInclude Include="Libraries\MitaLib\Aver_t1_v3.h" />
+    <ClInclude Include="Libraries\MitaLib\Backup_t1_v1.h" />
+    <ClInclude Include="Libraries\MitaLib\Circle_t1_v4.h" />
+    <ClInclude Include="Libraries\MitaLib\com_mgr_defs.h" />
+    <ClInclude Include="Libraries\MitaLib\errcodes.h" />
+    <ClInclude Include="Libraries\MitaLib\Event_t1_v3.h" />
+    <ClInclude Include="Libraries\MitaLib\FrqRpm_Drv_t2_v1.h" />
+    <ClInclude Include="Libraries\MitaLib\general.h" />
+    <ClInclude Include="Libraries\MitaLib\Hash_t1_v1.h" />
+    <ClInclude Include="Libraries\MitaLib\Io_t1_v5.h" />
+    <ClInclude Include="Libraries\MitaLib\lib_main.h" />
+    <ClInclude Include="Libraries\MitaLib\LinearScale_Drv_t1_v1.h" />
+    <ClInclude Include="Libraries\MitaLib\menudefs.h" />
+    <ClInclude Include="Libraries\MitaLib\menu_macros.h" />
+    <ClInclude Include="Libraries\MitaLib\MID2STAT.H" />
+    <ClInclude Include="Libraries\MitaLib\Mita.h" />
+    <ClInclude Include="Libraries\MitaLib\m_def.h" />
+    <ClInclude Include="Libraries\MitaLib\OS4x00.h" />
+    <ClInclude Include="Libraries\MitaLib\osdb.h" />
+    <ClInclude Include="Libraries\MitaLib\os_lib.h" />
+    <ClInclude Include="Libraries\MitaLib\os_main.h" />
+    <ClInclude Include="Libraries\MitaLib\os_sts.h" />
+    <ClInclude Include="Libraries\MitaLib\OS_WD.h" />
+    <ClInclude Include="Libraries\MitaLib\password.h" />
+    <ClInclude Include="Libraries\MitaLib\PCDISK.H" />
+    <ClInclude Include="Libraries\MitaLib\SOCKDEFS.H" />
+    <ClInclude Include="Libraries\MitaLib\stscode_macros.h" />
+    <ClInclude Include="Libraries\MitaLib\Timer_t1_v3.h" />
+    <ClInclude Include="Libraries\MitaLib\turbdef.h" />
+    <ClInclude Include="Libraries\MitaLib\types.h" />
+    <ClInclude Include="Libraries\MitaLib\unit.h" />
+    <ClInclude Include="Libraries\MitaLib\VarArrayMacros.h" />
+    <ClInclude Include="Libraries\MitaLib\VarArrayMenus.h" />
+    <ClInclude Include="Libraries\MitaLib\vardb_macros.h" />
+    <ClInclude Include="Libraries\MitaLib\Various_t1_v3.h" />
+    <ClInclude Include="Libraries\MitaLib\VarMacros.h" />
+    <ClInclude Include="Libraries\MitaOSApps\Menu_Server.h" />
+    <ClInclude Include="Libraries\MitaOSApps\MitaOSApps_main.h" />
+    <ClInclude Include="Libraries\MitaOSApps\StatusCodes_Eleon.h" />
+    <ClInclude Include="LiebherrConverter.h" />
+    <ClInclude Include="Loss_Counter.h" />
+    <ClInclude Include="LubricationYaw_MT_Type1.h" />
+    <ClInclude Include="Lubrication_Main_Bearing_MT_Type1.h" />
+    <ClInclude Include="Lubrication_MT_Type1.h" />
+    <ClInclude Include="Lubrication_Pitch_Pinion_MT_Type1.h" />
+    <ClInclude Include="LVRT.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="MainBearingPressure.h" />
+    <ClInclude Include="Nacelle.h" />
+    <ClInclude Include="NacelleAcceleration.h" />
+    <ClInclude Include="Operate_MT_Type2.h" />
+    <ClInclude Include="os_main.h" />
+    <ClInclude Include="OutdoorTemperature.h" />
+    <ClInclude Include="Panels.h" />
+    <ClInclude Include="Parameter_Import.h" />
+    <ClInclude Include="PitchAndTorque.h" />
+    <ClInclude Include="PowerCurve.h" />
+    <ClInclude Include="PowerManagement.h" />
+    <ClInclude Include="PowerReduction.h" />
+    <ClInclude Include="Power_Converter.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SafetyChain_MT_GL20102ManStop.h" />
+    <ClInclude Include="SafetySystem_MT_GL2010.h" />
+    <ClInclude Include="Shutdown.h" />
+    <ClInclude Include="SurgeProtection.h" />
+    <ClInclude Include="Torque.h" />
+    <ClInclude Include="Towerbase.h" />
+    <ClInclude Include="TowerResonansTime.h" />
+    <ClInclude Include="Transformer.h" />
+    <ClInclude Include="turbdef.h" />
+    <ClInclude Include="UPS.h" />
+    <ClInclude Include="UPS1.h" />
+    <ClInclude Include="Version.h" />
+    <ClInclude Include="VibrationMonitoringEmulator.h" />
+    <ClInclude Include="WeatherSensor2.h" />
+    <ClInclude Include="Wind.h" />
+    <ClInclude Include="WindDirection.h" />
+    <ClInclude Include="WindRose.h" />
+    <ClInclude Include="WindSpeed.h" />
+    <ClInclude Include="WindSpeedPower_Normalization.h" />
+    <ClInclude Include="YawMotorControl_MK1.h" />
+    <ClInclude Include="Yaw_MK1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="MODULE_CONFIG.XML">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">true</DeploymentContent>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WP4200_Operate.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

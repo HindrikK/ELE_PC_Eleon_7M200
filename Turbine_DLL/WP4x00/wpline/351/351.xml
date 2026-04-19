@@ -1,0 +1,7 @@
+<Type>351</Type>
+<HWProject>P10580</HWProject>
+<Target Type='CPU'>
+  <AppProject>P09519</AppProject>
+  <AppRevision>4.1.4</AppRevision>
+  <AppFile>I:\wpline\351\WPL351CPU_APP_P09519_Mk_II_4_1_4.crc</AppFile>
+</Target>

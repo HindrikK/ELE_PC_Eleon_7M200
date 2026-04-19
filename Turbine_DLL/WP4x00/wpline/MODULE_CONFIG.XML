@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<Controller Name="P12608 2016.11.1">
+  <Group Number="1">
+    <Module Node="1">
+      <Type>111</Type>
+    </Module>
+    <Module Node="2">
+      <Type>4200</Type>
+    </Module>
+    <Module Node="3">
+      <Type>151</Type>
+    </Module>
+    <Module Node="4">
+      <Type>351</Type>
+      <Target Type="CPU">
+        <AppProject>P09519</AppProject>
+      </Target>
+      <Modbus Comport="com1" Address="1">
+        <MBConfigFile>I:\wpline\351\MODBUS_INSULMONIT.XML</MBConfigFile>
+      </Modbus>
+    </Module>
+    <Module Node="5">
+      <Type>351</Type>
+      <Target Type="CPU">
+        <AppProject>P01524</AppProject>
+      </Target>
+    </Module>
+  </Group>
+  <Group Number="3">
+    <Module Node="1">
+      <Type>111</Type>
+    </Module>
+    <Module Node="2">
+      <Type>351</Type>
+      <Target Type="CPU">
+        <AppProject>P01524</AppProject>
+      </Target>
+    </Module>
+    <Module Node="3">
+      <Type>351</Type>
+      <Target Type="CPU">
+        <AppProject>P09519</AppProject>
+      </Target>
+      <Modbus Comport="com1" Address="1">
+        <MBConfigFile>I:\wpline\351\MODBUS_GENC.XML</MBConfigFile>
+      </Modbus>
+      <Modbus Comport="com1" Address="2">
+        <MBConfigFile>I:\wpline\351\MODBUS_GENC.XML</MBConfigFile>
+      </Modbus>
+    </Module>
+    <Module Node="4">
+      <Type>412</Type>
+    </Module>
+  </Group>
+  <Group Number="4">
+    <Module Node="1">
+      <Type>511</Type>
+      <HWProject>P11524</HWProject>
+      <DataIdFile>I:\wpline\511\WPL511_MKII_CANOPEN_P13516_0_4_1RC1.csv</DataIdFile>
+      <Target Type="CANopen">
+        <AppProject>P13516</AppProject>
+        <AppRevision>0.4.1 RC 1</AppRevision>
+        <AppFile>I:\wpline\511\WPL511_CANOPEN_P13516_0_4_1RC1.crc</AppFile>
+      </Target>
+    </Module>
+  </Group>
+  <Group Number="5">
+    <Module Node="1">
+      <Type>111</Type>
+    </Module>
+    <Module Node="2">
+      <Type>351</Type>
+      <Target Type="CPU">
+        <AppProject>P01524</AppProject>
+      </Target>
+    </Module>
+  </Group>
+  <Group Number="6">
+    <Module Node="1">
+      <Type>511</Type>
+      <HWProject>P11524</HWProject>
+      <DataIdFile>I:\wpline\511\WPL511_MKII_CANOPEN_P13556_0_2_0RC1.csv</DataIdFile>
+      <Target Type="CANopen">
+        <AppProject>P13556</AppProject>
+        <AppRevision>0.2.0 RC 1</AppRevision>
+        <AppFile>I:\wpline\511\WPL511_CANOPEN_P13556_0_2_0RC1.crc</AppFile>
+      </Target>
+    </Module>
+  </Group>
+</Controller>

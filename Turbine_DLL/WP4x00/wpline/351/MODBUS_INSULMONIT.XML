@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Prefix:MODBUSConfig>
+<variable_group>
+	<variable>
+		<dec>1</dec>
+		<register>1000</register>
+		<name>IM_Resistance_LB</name>
+		<description>"Resistance low byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+
+    <variable>
+		<dec>2</dec>
+		<register>1001</register>
+		<name>IM_Resistance_HB</name>
+		<description>"Resistance high byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+
+	<variable>
+		<dec>3</dec>
+		<register>1002</register>
+		<name>IM_Capacitance_LB</name>
+		<description>"Capacitance low byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+
+    <variable>
+		<dec>4</dec>
+		<register>1003</register>
+		<name>IM_Capacitance_HB</name>
+		<description>"Capacitance high byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>5</dec>
+		<register>1008</register>
+		<name>IM_IO_Wiring</name>
+		<description>"I/O wiring"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>6</dec>
+		<register>1100</register>
+		<name>IM_Alarm</name>
+		<description>"Alarm"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_INPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>7</dec>
+		<register>3000</register>
+		<name>IM_InjectionInhibitConf</name>
+		<description>"Injection inhibition input configuration"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>8</dec>
+		<register>3001</register>
+		<name>IM_AlarmRelayCommand</name>
+		<description>"Alarm relay logic command"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>9</dec>
+		<register>3002</register>
+		<name>IM_AlarmThreshold_LB</name>
+		<description>"Alarm threshold low byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>10</dec>
+		<register>3003</register>
+		<name>IM_AlarmThreshold_HB</name>
+		<description>"Alarm threshold high byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>11</dec>
+		<register>3004</register>
+		<name>IM_PreAlarmThreshold_LB</name>
+		<description>"Pre-alarm threshold low byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>12</dec>
+		<register>3005</register>
+		<name>IM_PreAlarmThreshold_HB</name>
+		<description>"Pre-alarm threshold high byte"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>13</dec>
+		<register>3007</register>
+		<name>IM_AlarmDelay</name>
+		<description>"Alarm delay"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>14</dec>
+		<register>3008</register>
+		<name>IM_SystemFiltering</name>
+		<description>"System filtering"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>15</dec>
+		<register>3009</register>
+		<name>IM_SystemFrequency</name>
+		<description>"System frequency"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+    
+    <variable>
+		<dec>16</dec>
+		<register>3019</register>
+		<name>IM_HVplate</name>
+		<description>"HV plate"</description>
+		<scale_value>1</scale_value>
+		<scale_type>SCALE_NONE</scale_type>
+		<initial>0</initial>
+		<precision>0</precision>
+		<type>VALUE_OUTPUT</type>
+		<unit>UNIT_NONE</unit>
+		<enable>1</enable>
+		<subscription>1</subscription>
+		<threshold>1</threshold>
+		<hold_time>20</hold_time>
+		<invert>0</invert>
+		<offset>0</offset>
+		<scale>0</scale>
+		<log_flag>0</log_flag>
+		<data_type>TYPE_D_U16</data_type>
+	</variable>
+</variable_group>
+
+<transaction_group>
+	<transaction>
+		<number>1</number>
+		<modbus_type>READ_INPUTREGISTERS_4</modbus_type>
+		<start_register>1000</start_register>
+		<length>4</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+
+	<transaction>
+		<number>2</number>
+		<modbus_type>READ_INPUTREGISTERS_4</modbus_type>
+		<start_register>1008</start_register>
+		<length>1</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+
+	<transaction>
+		<number>3</number>
+		<modbus_type>READ_INPUTREGISTERS_4</modbus_type>
+		<start_register>1100</start_register>
+		<length>1</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+    
+    <transaction>
+		<number>4</number>
+		<modbus_type>WRITE_MULTIPLEREGISTERS_16</modbus_type>
+		<start_register>3000</start_register>
+		<length>6</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+
+    <transaction>
+		<number>5</number>
+		<modbus_type>WRITE_MULTIPLEREGISTERS_16</modbus_type>
+		<start_register>3007</start_register>
+		<length>3</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+    
+    <transaction>
+		<number>6</number>
+		<modbus_type>WRITE_MULTIPLEREGISTERS_16</modbus_type>
+		<start_register>3019</start_register>
+		<length>1</length>
+		<repeat_time>1000</repeat_time>
+		<repeat_time_resolution>MSEC</repeat_time_resolution>
+		<retransmission_timeout>200</retransmission_timeout>
+		<max_retransmission>1</max_retransmission>
+		<penalty_time>100</penalty_time>
+		<transaction_type>AUTOMATIC</transaction_type>
+	</transaction>
+    
+</transaction_group>
+</Prefix:MODBUSConfig>

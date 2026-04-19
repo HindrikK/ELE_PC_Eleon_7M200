@@ -1,0 +1,9 @@
+<Type>111</Type>
+<Target Type='CPU'>
+  <BLProject>P09542</BLProject>
+  <BLRevision>1.3.0</BLRevision>
+  <BLFile>I:\wpline\111\WPL111CPU_BL_1_3_0.crc</BLFile>
+  <AppProject>P09542</AppProject>
+  <AppRevision>1.4.0</AppRevision>
+  <AppFile>I:\wpline\111\WPL111CPU_APP_1_4_0.crc</AppFile>
+</Target>

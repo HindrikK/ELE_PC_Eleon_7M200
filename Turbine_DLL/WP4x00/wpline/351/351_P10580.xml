@@ -1,0 +1,25 @@
+<Type>351</Type>
+<HWProject>P10580</HWProject>
+<Target Type='CPU'>
+  <BLProject>P01524</BLProject>
+  <BLRevision>4.0.14</BLRevision>
+  <BLFile>I:\wpline\351\WPL351CPU_BL_Mk_II_4_0_14.crc</BLFile>
+  <AppProject>P01524</AppProject>
+  <AppRevision>4.1.4</AppRevision>
+  <AppFile>I:\wpline\351\WPL351CPU_APP_P01524_Mk_II_4_1_4.crc</AppFile>
+</Target>
+<Target Type='CPLD'>
+  <AppProject>P01515</AppProject>
+  <AppRevision>2.0.2</AppRevision>
+  <AppFile>I:\wpline\351\WPL351CPLD_2_0_2.crc</AppFile>
+</Target>
+<Target Type='FPGA'>
+  <AppProject>P01515</AppProject>
+  <AppRevision>2.2.3</AppRevision>
+  <AppFile>I:\wpline\351\WPL351FPGA_APP_2_2_3.crc</AppFile>
+</Target>
+<Target Type='PIC'>
+  <AppProject>P01524</AppProject>
+  <AppRevision>1.1.0</AppRevision>
+  <AppFile>I:\wpline\351\WPL351PIC_APP_1_1_0.crc</AppFile>
+</Target>
