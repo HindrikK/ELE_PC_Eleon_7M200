@@ -3,7 +3,7 @@
 #include <Menu_Server.h>
 
 //#define MITALIB_DEBUG_FILE_OUTPUT
-#define MITALIB_DEBUG_CONSOLE_OUTPUT
+//#define MITALIB_DEBUG_CONSOLE_OUTPUT
 
 //following magic numbers arent the same that are in mita os
 #define TIMER_MAGIC_NUMBER                     0x05B5A55A

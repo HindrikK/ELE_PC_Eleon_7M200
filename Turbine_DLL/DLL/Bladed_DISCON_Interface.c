@@ -45,7 +45,7 @@ static float rad2deg(float rad)
 
 static float rad_s2rpm(float rad_s)
 {
-    return rad_s * 0.10472/*pi/30*/;
+    return rad_s * 9.54929/*30/pi*/;
 }
 
 /* Convert 1-based record number to 0-based C index */
@@ -108,6 +108,11 @@ typedef struct State {
 
 static State g;
 
+U32 IpString2Int(U8 a, U8 b, U8 c, U8 d)
+{
+    return (a | (b << 8) | (c << 16) | (d << 24));
+}
+
 /* key=value parser for controller parameter file */
 static void load_params_from_file(const char* path)
 {
@@ -149,6 +154,16 @@ static void load_params_from_file(const char* path)
         float x = (float)atof(val);
 
 		if (strcmp(key, "controller_folder") == 0) snprintf(root_folder, (int)sizeof(root_folder), "%s", val);
+        else if (strcmp(key, "enable_menuserver") == 0) {
+            if (val[0] == '1') {
+                if (!MenuServer_enabled) {
+                    MenuServer_enabled = 1;
+                    U32 LOCALIPADDRESS = IpString2Int(127, 0, 0, 1);
+                    MitaMenuMenuInitialize(LOCALIPADDRESS);
+                    printf("Menu server enabled\n");
+                }
+			}
+        }
         /*else if (strcmp(key, "p_rated") == 0) p->p_rated = x;
         else if (strcmp(key, "kopt") == 0) p->kopt = x;
         else if (strcmp(key, "torque_max") == 0) p->torque_max = x;
@@ -206,7 +221,7 @@ void DISCON(float* avrSWAP, int* aviFAIL, char* accINFILE, char* avcOUTNAME, cha
     /* Inputs */
     {
         DLL_IN_PowerDemand = 9999;// avrSWAP[R(SWAP_DEMANDED_POWER)] * 1000;
-        DLL_IN_GenSpeed = rad_s2rpm(avrSWAP[R(SWAP_MEASURED_ROTOR_SPEED)]) * 100;
+        DLL_IN_GenSpeed = rad_s2rpm(avrSWAP[R(SWAP_MEASURED_ROTOR_SPEED)]);
         DLL_IN_HubWindSpeed = avrSWAP[R(SWAP_HUB_WIND_SPEED)];
         DLL_IN_WindDirectionRel = rad2deg(avrSWAP[R(SWAP_MEASURED_YAW_ERROR)]);
         DLL_IN_NacAccForeAft = avrSWAP[R(SWAP_TOWER_TOP_FOREAFT_ACCEL)] / 10;   // need to check
@@ -242,10 +257,10 @@ void DISCON(float* avrSWAP, int* aviFAIL, char* accINFILE, char* avcOUTNAME, cha
 
         /* Check if controller directory is defined */
         if (root_folder[0] == '\0') {
-            //printf("DISCON: 'controller_folder' unspecified\n");
+            printf("DISCON: 'controller_folder' unspecified\n");
             write_msg(avcMSG, 256, "DISCON: 'controller_folder' unspecified");
-            if (aviFAIL) *aviFAIL = -1;
-            return;
+            //if (aviFAIL) *aviFAIL = -1;
+            //return;
         }
 
         DLL_IN_Initialize = true;

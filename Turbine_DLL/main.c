@@ -40,7 +40,7 @@ typedef enum
 }DllInterface_t;
 
 static OS_TASK OS_APP1_Task;
-unsigned char MenuServer_enabled = true;
+unsigned char MenuServer_enabled = false;
 static DllInterface_t dll_interface = DLL_IF_NA;
 
 
@@ -100,9 +100,14 @@ int MainCall() {
 			return LocalStatus - 4000;
 		}
 
-		printf("Loading paramater file... ");
+		printf("Loading parameter file... ");
 		char param_file_path[512];
-		sprintf(param_file_path, "%s\\DLL_parameters.par", root_folder);
+		if (root_folder[0] == '\0') {  // when no root folder set then assume parameter file is in the same currently active folder
+			sprintf(param_file_path, "DLL_parameters.par");
+		}
+		else {
+			sprintf(param_file_path, "%s\\DLL_parameters.par", root_folder);
+		}
 		int result = Import_Parameters_File(param_file_path, 1000);
 		if (result < 0) {
 			printf("Failed\n");
