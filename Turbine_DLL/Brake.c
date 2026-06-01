@@ -90,7 +90,7 @@ static struct os_db_local LocalVars[] =
 
 static struct os_db_parameter ParameterVars[] =
 {
-   VAR_ELEMENT_PARAMETER("P_BrakeManualMax",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    100,     UNIT_RPM,           1,   100,             10,              500,             NULL  ),
+   VAR_ELEMENT_PARAMETER("P_BrakeManualMax",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,     UNIT_RPM,           1,   1000,             100,              5000,             NULL  ),
    VAR_ELEMENT_PARAMETER("P_Brake_ValvesDelay",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,    UNIT_SECOND,        2,   500,             0,               5000,            NULL  ),
    VAR_ELEMENT_PARAMETER("P_HydrOilPump_MaxTime",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,    UNIT_SECOND,        1,   120000,          0,               1000000,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_HydrOilPump_ServiceCtrl",                TYPE_U8,      PASSWORD_LEVEL_SERVICE,            PASSWORD_LEVEL_SERVICE,            SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               2,               NULL  ),

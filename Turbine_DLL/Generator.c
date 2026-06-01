@@ -71,7 +71,7 @@ static char A_P_GEN_RpmFiltTbl_FileName[31]  = "RpmFilter_V1.0.dat";
 
 static struct os_db_local LocalVars[] =
 {
-   VAR_ELEMENT_LOCAL("V_GEN_PulserRpm",                          TYPE_U32,     PASSWORD_LEVEL_UNLOGGED_IN,        PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    100,     UNIT_RPM,           1,   0,               0,               9999,            NULL,  TOTLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_GEN_PulserRpm",                          TYPE_U32,     PASSWORD_LEVEL_UNLOGGED_IN,        PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               0,               99999,            NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_Generator_StatorAirGap1",                TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    10,      UNIT_MMETER,        1,   0,               0,               100,             NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_Generator_StatorAirGap2",                TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    10,      UNIT_MMETER,        1,   0,               0,               100,             NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_Generator_StatorAirGap1_Min",            TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    10,      UNIT_MMETER,        1,   100,             0,               100,             NULL,  NOLOG_ENABLE),
@@ -95,17 +95,17 @@ static struct os_db_local LocalVars[] =
    VAR_ELEMENT_LOCAL("AI_MagneticFlux",                          TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_NONE,          2,   0,               -200,            200,             NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_MagneticFluxSensorStatusTxt",            TYPE_STRING + sizeof(A_V_MagneticFluxSensorStatusTxt) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   A_V_MagneticFluxSensorStatusTxt, 0,                0,                NULL,  NOLOG_ENABLE  ),
    VAR_ELEMENT_LOCAL("V_MagneticFluxSensorStatus",               TYPE_S32,     PASSWORD_LEVEL_MITA_PROGRAMMER,    PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_ControllerRpm",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               0,               9999,            NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_ControllerRpm",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               0,               99999,            NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_ControllerRpmSelectTxt",                 TYPE_STRING + sizeof(A_V_ControllerRpmSelectTxt) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   A_V_ControllerRpmSelectTxt, 0,                0,                NULL,  NOLOG_ENABLE  ),
-   VAR_ELEMENT_LOCAL("V_GEN_EncoderRpm",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_GEN_Encoder2Rpm",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  TOTLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_GEN_EncoderRpm",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_GEN_Encoder2Rpm",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_GEN_RotorAzimuth",                       TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    10,      UNIT_DEGREE,        1,   0,               U16_MIN,         U16_MAX,         NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_RotorLockUnlockStatusTxt",               TYPE_STRING + sizeof(A_V_RotorLockUnlockStatusTxt) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   A_V_RotorLockUnlockStatusTxt, 0,                0,                NULL,  NOLOG_ENABLE  ),
-   VAR_ELEMENT_LOCAL("V_RotorRpm100MSec",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_UNLOGGED_IN,        SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_RotorRpm1Sec",                           TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_RotorRpm3Sec",                           TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_RotorRpm30Sec",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_RotorRpm10Min",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_RotorRpm100MSec",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_UNLOGGED_IN,        SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_RotorRpm1Sec",                           TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_RotorRpm3Sec",                           TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_RotorRpm30Sec",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_RotorRpm10Min",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_GEN_Load_Parameters",                    TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_GEN_RpmFiltTbl_LoadFile",                TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("V_ControllerRpm_FiltTbl",                           PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,                           UNIT_RPM,           3,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
@@ -153,7 +153,7 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_Generator_StatorAirGap5_OutputMin",      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    10,      UNIT_MMETER,        1,   8,               0,               10,              NULL  ),
    VAR_ELEMENT_PARAMETER("P_Generator_StatorAirGap5_Min",            TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    10,      UNIT_MMETER,        1,   10,              U32_MIN,         35,              NULL  ),
    VAR_ELEMENT_PARAMETER("P_Generator_StatorAirGap5_Enable",         TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_NONE,   0,       UNIT_NONE,          0,   1,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER("P_Sts300_GeneratorSpeed",                  TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   400,             0,               1200,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_Sts300_GeneratorSpeed",                  TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,     UNIT_RPM,          1,   4000,            0,               12000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_Sts300_Deviation",                       TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_PCT,           1,   2000,            0,               40000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_MagneticFluxSensorInputMin",             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,    UNIT_MAMPERE,       1,   0,               0,               20000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_MagneticFluxSensorInputMax",             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,    UNIT_MAMPERE,       1,   20000,           0,               20000,           NULL  ),
@@ -161,13 +161,13 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_MagneticFluxSensorOutputMax",            TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    100,     UNIT_NONE,          2,   200,             -200,            200,             NULL  ),
    VAR_ELEMENT_PARAMETER("P_SelectControllerRpm",                    TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   1,               1,               3,               NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_EncoderPulsPerRev",                  TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   1024,            U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_Sts302_RotorSpeed",                      TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           1,   600,             U16_MIN,         U16_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_Sts302_RotorSpeed",                      TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,          1,   6000,            U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_Sts302_Deviation",                       TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_PCT,           1,   2000,            U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_EncoderOffset",                      TYPE_S16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               S16_MIN,         S16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_Encoder2Offset",                     TYPE_S16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               S16_MIN,         S16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFiltTbl_Enable",                  TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFiltTbl_FileName",                TYPE_STRING + sizeof(A_P_GEN_RpmFiltTbl_FileName) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   A_P_GEN_RpmFiltTbl_FileName, 0,                0,                NULL  ),
-   VAR_ELEMENT_PARAMETER("P_GEN_RpmFilterHysteresis",                TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    100,     UNIT_RPM,           2,   0,               U16_MIN,         U16_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_GEN_RpmFilterHysteresis",                TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFilterHystMidDelay",              TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        1,   1000,            U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFilt_Enable",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_Accel",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       3,   0.3F,            F32_MIN,         F32_MAX,         NULL  ),
@@ -2156,7 +2156,7 @@ static STATUS Load_Parameters()
     if (LocalStatus != 0) { return LocalStatus; }
     LocalStatus = OS_VarDB_ReadVariableByName("P_GEN_RpmFilterHysteresis", &P_GEN_RpmFilterHysteresis, sizeof(P_GEN_RpmFilterHysteresis), NULL);
     if (LocalStatus != 0) { return LocalStatus; }
-    LocalStatus = Hyst_v2_Set_Hysteresis(RpmFilter_Hyst, (F32)P_GEN_RpmFilterHysteresis / 100/*hysteresis*/);
+    LocalStatus = Hyst_v2_Set_Hysteresis(RpmFilter_Hyst, (F32)P_GEN_RpmFilterHysteresis / 1000/*hysteresis*/);
     if (LocalStatus != 0) { return LocalStatus; }
     LocalStatus = OS_VarDB_ReadVariableByName("P_GEN_RpmFilterHystMidDelay", &P_GEN_RpmFilterHystMidDelay, sizeof(P_GEN_RpmFilterHystMidDelay), NULL);
     if (LocalStatus != 0) { return LocalStatus; }
@@ -2415,7 +2415,7 @@ static F32 GetCorrectionValue_Rpm(F32 rpm)
     static U16 indexDeg;
     static U16 indexRpm;
     
-    rpm = (U32)(rpm * 100);   // convert to integer value with scaling x100
+    rpm = (U32)(rpm * 1000);   // convert to integer value with scaling x1000
 
     // calculate deg index
     if (V_GEN_RotorAzimuth < 0) { indexDeg = 0; }
@@ -2428,10 +2428,10 @@ static F32 GetCorrectionValue_Rpm(F32 rpm)
 
     // calculate rpm index
     if (rpm < 0) { indexRpm = 0; }
-    else if (rpm > 1400) { indexRpm = NUM_OF_RPMFILTER_RPM_POINTS - 1; }
-    else { indexRpm = rpm / 100; }
+    else if (rpm > 14000) { indexRpm = NUM_OF_RPMFILTER_RPM_POINTS - 1; }
+    else { indexRpm = rpm / 1000; }
 
-    return (F32)(FilterTable_Rpm[indexDeg][indexRpm]) / 100;
+    return (F32)(FilterTable_Rpm[indexDeg][indexRpm]) / 1000;
 }
 
 
@@ -2441,20 +2441,20 @@ static void UpdateEncoder1Rpm(void)
 {
     F32 frequency = (F32)(HSI_GEN_EncoderFrequency1 + HSI_GEN_EncoderFrequency2) / 2;
     F32 rpm = frequency / 1000 * 60 / P_GEN_EncoderPulsPerRev;
-    V_GEN_EncoderRpm = (U32)((rpm + 0.005) * 100);  // convert and round
+    V_GEN_EncoderRpm = (U32)((rpm + 0.0005) * 1000);  // convert and round
 }
 
 static void UpdateEncoder2Rpm(void)
 {
     F32 frequency = (F32)(HSI_GEN_Encoder2Frequency1 + HSI_GEN_Encoder2Frequency2) / 2;
     F32 rpm = frequency / 1000 * 60 / (ROTOR_ENCODER2_PPR / 4);
-    V_GEN_Encoder2Rpm = (U32)((rpm + 0.005) * 100);  // convert and round
+    V_GEN_Encoder2Rpm = (U32)((rpm + 0.0005) * 1000);  // convert and round
 }
 
 static void UpdatePulserRpm(void)
 {
     F32 rpm = (F32)AI_GEN_PulserFrequency / 1000 * 60 / P_GEN_PulserPulsPerRev;
-    V_GEN_PulserRpm = (U32)((rpm + 0.005) * 100);  // convert and round
+    V_GEN_PulserRpm = (U32)((rpm + 0.0005) * 1000);  // convert and round
 }
 
 static void UpdateRotorRpm(void)
@@ -2470,22 +2470,22 @@ static void UpdateRotorRpm(void)
     {
         case 1:
         {
-         rpm = (F32)V_GEN_EncoderRpm / 100;
+         rpm = (F32)V_GEN_EncoderRpm / 1000;
          break;
         }
         case 2:
         {
-         rpm = (F32)V_GEN_PulserRpm / 100;
+         rpm = (F32)V_GEN_PulserRpm / 1000;
          break;
         }
         case 3:
         {
-         rpm = (F32)V_GEN_Encoder2Rpm / 100;
+         rpm = (F32)V_GEN_Encoder2Rpm / 1000;
          break;
         }
         default:
         {
-         //rpm = (F32)V_GEN_EncoderRpm / 100;
+         //rpm = (F32)V_GEN_EncoderRpm / 1000;
          break;
         }
     }
@@ -2533,7 +2533,7 @@ static void UpdateRotorRpm(void)
         rpm = Hyst_v2_Control(RpmFilter_Hyst, rpm);
     }
 
-    V_ControllerRpm = (U32)((rpm + 0.005) * 100);
+    V_ControllerRpm = (U32)((rpm + 0.0005) * 1000);
 }
 
 

@@ -92,7 +92,7 @@ static struct os_db_local LocalVars[] =
    VAR_ELEMENT_LOCAL("V_PAT_PowerPID",                           TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_PAT_PitchPID",                           TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREE,        2,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("V_PAT_RotorSpeedAccel",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_PAT_FreewheelSpeedRef",                  TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   200,             U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_PAT_FreewheelSpeedRef",                  TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   2000,            U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_PAT_FreewheelStart",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_PAT_PitchAngleSP_CPC",                   TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREE,        2,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_PAT_PitchAngleSP_IPC_1",                 TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREE,        2,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
@@ -133,18 +133,18 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_PAT_PitchSpeedFastStop",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREESPSEC,   1,   450,             100,             600,             NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_PitchSpeedImmediateStop",            TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREESPSEC,   1,   450,             100,             600,             NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_PitchSpeedStarting",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREESPSEC,   1,   250,             100,             600,             NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_RpmAccLimStarting",                  TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPMPSEC,       2,   16,              S32_MIN,         S32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_RpmAccLimStarting",                  TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPMPSEC,       3,   160,             S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchPIDrated_Kp",                            PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   8.0F,            F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchPIDrated_Ki",                            PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   0.055F,          F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchPIDrated_Kd",                            PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   7.5F,            F32_MIN,         F32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_BelowRatedPitchPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   890,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_RatedSpeedPitchPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   880,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_BelowRatedPitchPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8900,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_RatedSpeedPitchPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8800,            U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PowerPID_Kp",                                 PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   15.0F,           F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PowerPID_Ki",                                 PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   0.08F,           F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PowerPID_Kd",                                 PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   10.0F,           F32_MIN,         F32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_RatedSpeed",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   860,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_MinRpm",                             TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   300,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_RpmMaxBelowRated",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   850,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_RatedSpeed",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8600,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_MinRpm",                             TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   3000,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_RpmMaxBelowRated",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8500,            U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_PwrMaxBelowRated",                   TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   4800,            S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_MinRatedLosses",                              PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_PCT,           1,   6.0F,            0.0F,            30.0F,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_GridNominalPower",                   TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   7000,            S32_MIN,         S32_MAX,         NULL  ),
@@ -153,10 +153,10 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_PAT_LowWindAngle",                       TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREE,        1,   4000,            0,               9000,            NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_StartupWindMin",                     TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_MPS,           1,   200,             U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_StartupModeTime",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        0,   20000,           U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_StartupInitRpm",                     TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   80,              U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_StartupRpm",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   400,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_RatedPowerPowerPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_NONE,          2,   840,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_LimitedPowerPIDRpm",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   20,              U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_StartupInitRpm",                     TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   800,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_StartupRpm",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   4000,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_RatedPowerPowerPIDRpm",              TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8400,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_LimitedPowerPIDRpm",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   200,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_PwrRampRatedPwr",                    TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATTPSEC,     0,   400,             U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchPIDlimited_Kd",                          PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   8.3F,            F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchPIDlimited_Ki",                          PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   0.038F,          F32_MIN,         F32_MAX,         NULL  ),
@@ -166,7 +166,7 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchGainAdjFactor1",                         PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          3,   1.0F,            F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_PitchGainAdjFactor2",                         PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          3,   0.25F,           F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_PitchAccelDecel",                    TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREEPSEC2,   2,   20,              U16_MIN,         U16_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_OVSpd_Rpm",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   900,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_OVSpd_Rpm",                          TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   9000,           U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_OVSpd_PitchPID_Kp",                           PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   6.0F,            F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_OVSpd_PitchPID_Ki",                           PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   0.025F,          F32_MIN,         F32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_PAT_OVSpd_PitchPID_Kd",                           PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          2,   6.0F,            F32_MIN,         F32_MAX,         NULL  ),
@@ -180,7 +180,7 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_PAT_OVSpd_PwrTimeOnMax",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        1,   3,               U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_OVSpd_PwrTimeRecover",               TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        1,   10,              U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_OVSpd_PwrEnergyMax",                 TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   1000,            U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_OVspd_RotorAccMax",                  TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPMPSEC,       2,   20,              S32_MIN,         S32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_OVspd_RotorAccMax",                  TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPMPSEC,       3,   200,             S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_OVspd_PitchSpd_1",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREESPSEC,   1,   20,              U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_OVspd_PitchSpd_2",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_DEGREESPSEC,   1,   200,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_OVspd_StabTime",                     TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        1,   3000,            U32_MIN,         U32_MAX,         NULL  ),
@@ -188,27 +188,27 @@ static struct os_db_parameter ParameterVars[] =
    // RPM_avoidance
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrRamp",                      TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATTPSEC,     0,   75,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Enable_1",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_1",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   600,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_1",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   25,              U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_1",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   40,              U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_1",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   6000,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_1",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   250,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_1",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   400,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrUp_1",                      TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   60,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrDown_1",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   75,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Enable_2",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_2",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   750,             U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_2",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   25,              U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_2",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   45,              U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_2",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   7500,            U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_2",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   250,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_2",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   450,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrUp_2",                      TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   75,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrDown_2",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   90,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Enable_3",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_3",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1000,            U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_3",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   30,              U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_3",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   60,              U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_3",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   10000,           U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_3",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   300,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_3",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   600,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrUp_3",                      TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   75,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrDown_3",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   90,              S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Enable_4",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_4",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1255,            U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_4",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   10,              U32_MIN,         U32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_4",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   25,              U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Rpm_4",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   12550,           U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone1_4",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   100,             U32_MIN,         U32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER("P_PAT_Avoid_Zone2_4",                      TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   250,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrUp_4",                      TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   100,             S32_MIN,         S32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_PAT_Avoid_PwrDown_4",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_KWATT,         0,   100,             S32_MIN,         S32_MAX,         NULL  ),
 
@@ -2417,8 +2417,8 @@ static int File_ReadBetween(S32 file, char* string, S32 max, char startChar, cha
 //_______________________________________________________________________
 
 #define PWRC_NUM_OF_RPM_POINTS 141
-#define PWRC_RPM_INDEX_DIV 10
-#define PWRC_TABLE_MIN_RPM 200
+#define PWRC_RPM_INDEX_DIV 100
+#define PWRC_TABLE_MIN_RPM 2000
 
 S32 PAT_FileDescriptor_PwrTable;
 char PWRC_TableStatus_Txt[30];
@@ -2828,7 +2828,7 @@ static S32 GetRpmFromDerateTbl(S32 power/*kW*/)
             // interpolate rpm value
             F32 value = ((F32)PAT_DerateRpmTable[indexRpm + 1] - (F32)PAT_DerateRpmTable[indexRpm]) / PAT_PWR_INDEX_DIV;
             value = value * (power - indexRpm * PAT_PWR_INDEX_DIV);
-            return PAT_DerateRpmTable[indexRpm] + (S32)value;
+            return (PAT_DerateRpmTable[indexRpm] + (S32)value) * 10;
         }
     }
 }
@@ -3678,7 +3678,7 @@ static void RampUp(BOOL firstentry)
 
             // pitch
             //*****************************************************
-            if (SpeedRef < (V_ControllerRpm + 200) )   // allow actual rpm to keep up with speed reference
+            if (SpeedRef < (V_ControllerRpm + 2000) )   // allow actual rpm to keep up with speed reference
             {
                 SpeedRef = RateLim_Control(SpeedRefRamp, P_PAT_RatedSpeed/*Input*/);
             }
@@ -3751,7 +3751,7 @@ static void RampUp(BOOL firstentry)
 
             // pitch
             //*****************************************************
-            if (SpeedRef < (V_ControllerRpm + 200) )   // allow actual rpm to keep up with speed reference
+            if (SpeedRef < (V_ControllerRpm + 2000) )   // allow actual rpm to keep up with speed reference
             {
                 SpeedRef = RateLim_Control(SpeedRefRamp, P_PAT_RatedSpeed/*Input*/);
             }
@@ -4204,7 +4204,7 @@ static void RatedPower(BOOL firstentry)
     // EXIT CONDITIONS
     //-----------------------------------------------------------------------
 
-    if (V_ControllerRpm < (P_PAT_RatedSpeed - 10) && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 20))
+    if (V_ControllerRpm < (P_PAT_RatedSpeed - 100) && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 20))
     {
         StateFunctionPointer = RatedSpeed;
     }
@@ -4244,8 +4244,8 @@ static void LimitedPower(BOOL firstentry)
     //-----------------------------------------------------------------------
     if (firstentry)
     {
-        RateLim_Set_RateUp(SpeedRefRamp, 5/*RateUp*/);
-        RateLim_Set_RateDown(SpeedRefRamp, 5/*RateDown*/);
+        RateLim_Set_RateUp(SpeedRefRamp, 50/*RateUp*/);
+        RateLim_Set_RateDown(SpeedRefRamp, 50/*RateDown*/);
         RateLim_Reset(SpeedRefRamp, SpeedRef/*Output*/);
         RateLim_Set_RateUp(PowerCompensationRamp, P_PAT_PwrCompSpeedInc/*RateUp*/);
         RateLim_Set_RateDown(PowerCompensationRamp, P_PAT_PwrCompSpeedDec/*RateDown*/);
@@ -4635,8 +4635,8 @@ static void Overspeed(BOOL firstentry)
 //    //-----------------------------------------------------------------------
 //    if (firstentry)
 //    {
-//        RateLim_Set_RateUp(SpeedRefRamp, 10/*RateUp*/);
-//        RateLim_Set_RateDown(SpeedRefRamp, 10/*RateDown*/);
+//        RateLim_Set_RateUp(SpeedRefRamp, 100/*RateUp*/);
+//        RateLim_Set_RateDown(SpeedRefRamp, 100/*RateDown*/);
 //        RateLim_Reset(SpeedRefRamp, SpeedRef/*Output*/);
 //        RateLim_Set_RateUp(PowerCompensationRamp, P_PAT_PwrCompSpeedInc/*RateUp*/);
 //        RateLim_Set_RateDown(PowerCompensationRamp, P_PAT_PwrCompSpeedDec/*RateDown*/);
@@ -4722,7 +4722,7 @@ static void Overspeed(BOOL firstentry)
 
 
 //    // calculate rotor speed reference
-//    //if(SpeedRef > (V_ControllerRpm - 100) && SpeedRef < (V_ControllerRpm + 100))    // allow actual rpm to keep up with speed reference; limits the max reference deviation from the actual rpm
+//    //if(SpeedRef > (V_ControllerRpm - 1000) && SpeedRef < (V_ControllerRpm + 1000))    // allow actual rpm to keep up with speed reference; limits the max reference deviation from the actual rpm
 //    //{
 //    //   SpeedRef = RateLim_Control(SpeedRefRamp, GetRpmFromDerateTbl(V_PAT_PowerSetpoint)/*Input*/);
 //    //}
@@ -4832,8 +4832,8 @@ static void Overspeed(BOOL firstentry)
 //    //-----------------------------------------------------------------------
 //    if (firstentry)
 //    {
-//        RateLim_Set_RateUp(SpeedRefRamp, 10/*RateUp*/);
-//        RateLim_Set_RateDown(SpeedRefRamp, 10/*RateDown*/);
+//        RateLim_Set_RateUp(SpeedRefRamp, 100/*RateUp*/);
+//        RateLim_Set_RateDown(SpeedRefRamp, 100/*RateDown*/);
 //        RateLim_Reset(SpeedRefRamp, SpeedRef/*Output*/);
 //        RateLim_Set_RateUp(PowerCompensationRamp, P_PAT_PwrCompSpeedInc/*RateUp*/);
 //        RateLim_Set_RateDown(PowerCompensationRamp, P_PAT_PwrCompSpeedDec/*RateDown*/);
@@ -4920,7 +4920,7 @@ static void Overspeed(BOOL firstentry)
 
 
 //    // calculate rotor speed reference
-//    //if(SpeedRef > (V_ControllerRpm - 100) && SpeedRef < (V_ControllerRpm + 100))    // allow actual rpm to keep up with speed reference; limits the max reference deviation from the actual rpm
+//    //if(SpeedRef > (V_ControllerRpm - 1000) && SpeedRef < (V_ControllerRpm + 1000))    // allow actual rpm to keep up with speed reference; limits the max reference deviation from the actual rpm
 //    //{
 //    //   SpeedRef = RateLim_Control(SpeedRefRamp, GetRpmFromDerateTbl(V_PAT_PowerSetpoint)/*Input*/);
 //    //}
@@ -5129,7 +5129,7 @@ static void StopNormal(BOOL firstentry)
             if (V_CNV_PowerSetpoint > P_PAT_PwrMaxBelowRated)
             {
                 // only pitch out when power is matching power-rpm curve or rpm is above rated - this prevents slowing down too fast
-                if (powerSetpoint > V_PAT_PowerSetpoint || V_ControllerRpm >= (P_PAT_RatedSpeed - 10))
+                if (powerSetpoint > V_PAT_PowerSetpoint || V_ControllerRpm >= (P_PAT_RatedSpeed - 100))
                 {
                     V_PAT_PitchAngleSP_CPC = RateLim_Control(PitchAngleRamp, P_PAT_PitchAngleStop/*Input*/);
                 }
@@ -5185,7 +5185,7 @@ static void StopNormal(BOOL firstentry)
 //***********************************************************************
 #define P_PAT_PitchSpeedTorqueStop 50       // 0,5 deg/s
 #define P_PAT_PitchSpeedTorqueStop2 100     // 1,0 deg/s
-#define P_PAT_TorqueStopRpm2 400            // 4,0 rpm
+#define P_PAT_TorqueStopRpm2 4000           // 4,000 rpm
 static void StopTorque(BOOL firstentry)
 {
     static S32 predictedLosses = 0;
@@ -5694,7 +5694,7 @@ static STATUS LocalCtrl( U32 Interval )
     GridRealPower3Sec = V_GridRealPower3Sec / 1000;
 
     // get rotor rpm acceleration value
-    V_PAT_RotorSpeedAccel = Derivative_Control(RotorSpeedAccel, (F32)V_ControllerRpm / 100);
+    V_PAT_RotorSpeedAccel = Derivative_Control(RotorSpeedAccel, (F32)V_ControllerRpm / 1000);
 
     // get rpm avoidance power shift value
     V_PAT_AvoidancePower = RpmAvoidanceCtrl(rpmAvoidanceEnable);

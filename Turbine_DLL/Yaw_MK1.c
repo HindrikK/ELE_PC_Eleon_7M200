@@ -2845,7 +2845,7 @@ static void Yaw_UntwistRunCW_State(BOOL firstentry)
          {
             case 0:     // By now, turbine has been stopped by active untwisting status code. Wait for rotor speed to drop below 2,00 rpm.
             {
-               if (V_ControllerRpm < 200)
+               if (V_ControllerRpm < 2000)
                {
                   step = 1;
                }
@@ -3004,7 +3004,7 @@ static void Yaw_UntwistRunCCW_State(BOOL firstentry)
          {
             case 0:     // By now, turbine has been stopped by active untwisting status code. Wait for rotor speed to drop below 2,00 rpm.
             {
-               if (V_ControllerRpm < 200)
+               if (V_ControllerRpm < 2000)
                {
                   step = 1;
                }

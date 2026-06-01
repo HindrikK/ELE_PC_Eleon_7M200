@@ -848,11 +848,11 @@ static STATUS LocalCtrl(void)
                 );
         //--------------------------------------------------------------------
         //Rotor rpm
-        snprintf(V_RPMsTxt,                                       //Prints actual rotor speed with one number after decimal point
+        snprintf(V_RPMsTxt,                                       //Prints actual rotor speed with two numbers after decimal point
                  sizeof(V_RPMsTxt),
                  "%u.%u rpm",
-                 V_ControllerRpm / 100,
-                 (V_ControllerRpm % 100) / 10
+                 V_ControllerRpm / 1000,
+                 (V_ControllerRpm % 1000) / 10
                 );
         //--------------------------------------------------------------------
         //Real Power / Reactive Power
@@ -1189,8 +1189,8 @@ static STATUS LocalCtrl(void)
                     SL_WindSpeedTenths = (V_WindSpeed % 100) / 10;                              //Value after decimal point. Division by 10 to have only one number after decimal point
                     if (V_PitchAngle < 0) { snprintf(SL_PitchAngleTxt, sizeof(SL_PitchAngleTxt), "-%d.%u%s", (V_PitchAngle / 100), ((abs(V_PitchAngle) % 100) / 10), DEGREE_SIGN); }
                     else { snprintf(SL_PitchAngleTxt, sizeof(SL_PitchAngleTxt), "%2d.%u%s", (V_PitchAngle / 100), ((abs(V_PitchAngle) % 100) / 10), DEGREE_SIGN); }
-                    SL_RotorRpmOnes = V_ControllerRpm / 100;                                    //Value before decimal point. Division by 100 because of SCALE_DIV 100
-                    SL_RotorRpmTenths = (V_ControllerRpm % 100) / 10;                           //Value after decimal point. Division by 10 to have only one number after decimal point
+                    SL_RotorRpmOnes = V_ControllerRpm / 1000;                                   //Value before decimal point. Division by 1000 because of SCALE_DIV 1000
+                    SL_RotorRpmTenths = (V_ControllerRpm % 1000) / 10;                         //Value after decimal point. Division by 10 to have only two numbers after decimal point
                     SL_GridRealPower = V_GridRealPower1Sec / 1000;                              //No rounding, simple whole value. Division by 1000 because of SCALE_DIV 1000
                     U16 Scount = OS_NoOfActiveStatusCodes();
                     if (Scount == 0) { sprintf(SL_StatusTxt, "OK"); }

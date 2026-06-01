@@ -65,14 +65,14 @@ static struct os_db_local LocalVars[] =
 {
    VAR_ELEMENT_LOCAL("V_ActiveTable",                            TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   1,       UNIT_NONE,          0,   1,               1,               2,               NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_TableSelect",                            TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   1,       UNIT_NONE,          0,   1,               1,               2,               NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_TNotchRpmOutput",                        TYPE_U32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    100,     UNIT_RPM,           2,   0,               0,               250000,          NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_TNotchRpmOutput",                        TYPE_U32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    1000,    UNIT_RPM,           3,   0,               0,               2500000,         NULL,  TOTLOG_ENABLE | FIVEMINLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_TorqueTableSPNm",                        TYPE_S32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    10,      UNIT_NM,            1,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_S64("V_CalculatedTorqueSPNm",                            PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    10,      UNIT_NM,            1,   0LL,             S64_MIN,         S64_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_TorqueSPNm",                             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    10000,   UNIT_NONE,          1,   0,               S32_MIN,         S32_MAX,         NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_NotchFilterEnabledText",                 TYPE_STRING + sizeof(A_V_NotchFilterEnabledText) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   0,       UNIT_NONE,          0,   A_V_NotchFilterEnabledText, 0,                0,                NULL,  NOLOG_ENABLE  ),
    VAR_ELEMENT_LOCAL("V_AdaptiveTableEnabledText",               TYPE_STRING + sizeof(A_V_AdaptiveTableEnabledText) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   0,       UNIT_NONE,          0,   A_V_AdaptiveTableEnabledText, 0,                0,                NULL,  NOLOG_ENABLE  ),
    VAR_ELEMENT_LOCAL("V_TorqueFromNewTable",                     TYPE_S32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    10,      UNIT_NM,            1,   0,               S32_MIN,         S32_MAX,         NULL,  NOLOG_ENABLE),
-   VAR_ELEMENT_LOCAL("V_LocalControlRpm",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    100,     UNIT_RPM,           1,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_LocalControlRpm",                        TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_DIV,    1000,    UNIT_RPM,           3,   0,               U32_MIN,         U32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_FreezeTorqueSetpoint",                   TYPE_U8,      PASSWORD_LEVEL_MITA_PROGRAMMER,    PASSWORD_LEVEL_MITA_PROGRAMMER,    SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL,  NOLOG_ENABLE),
 };
 
@@ -84,7 +84,7 @@ static struct os_db_parameter ParameterVars[] =
 {
    VAR_ELEMENT_PARAMETER("P_CritTorqueRampDown",                     TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   5000000,         200,             8000000,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_CritTorqueRampUp",                       TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   5000000,         200,             8000000,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_CriticalRPM",                            TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   50,              10,              500,             NULL  ),
+   VAR_ELEMENT_PARAMETER("P_CriticalRPM",                            TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   500,             100,             5000,            NULL  ),
    VAR_ELEMENT_PARAMETER("P_EnableAdaptiveTable",                    TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   1,               0,               1,               NULL  ),
    VAR_ELEMENT_PARAMETER("P_ManualTorqueTableSelect",                TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   1,       UNIT_NONE,          0,   1,               1,               2,               NULL  ),
    VAR_ELEMENT_PARAMETER("P_MaxOperTorque",                          TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          2,   16000000,        20000,           35000000,        NULL  ),
@@ -94,17 +94,17 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_TorqueNotchFrq",                         TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_HERTZ,         3,   3564,            0,               10000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueNotchON",                          TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   1,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueRatedNm",                          TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          2,   13600000,        20000,           35000000,        NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen1LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   600,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen2LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   700,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen3LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   800,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen4LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   870,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen5LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   920,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen6LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1080,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen7LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1190,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen8LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1220,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen9LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1280,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen10LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1390,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen11LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           1,   1500,            0,               2200,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen1LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   6000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen2LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   7000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen3LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen4LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8700,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen5LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   9200,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen6LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   10800,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen7LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   11900,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen8LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   12200,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen9LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   12800,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen10LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   13900,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl1Gen11LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   15000,           0,               22000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque1Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   0,               0,               35000000,        NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque2Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   3000000,         0,               35000000,        NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque3Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   4500000,         0,               35000000,        NULL  ),
@@ -116,17 +116,17 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque9Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   16100000,        0,               35000000,        NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque10Nm",                   TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   15800000,        0,               35000000,        NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl1Torque11Nm",                   TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   14600000,        0,               35000000,        NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen1LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   600,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen2LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   700,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen3LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   800,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen4LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   900,             0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen5LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1030,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen6LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1080,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen7LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1110,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen8LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1240,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen9LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1340,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen10LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1390,            0,               2200,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen11LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1500,            0,               2200,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen1LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   6000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen2LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   7000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen3LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   8000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen4LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   9000,            0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen5LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   10300,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen6LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   10800,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen7LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   11100,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen8LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   12400,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen9LtRpm",                    TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   13400,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen10LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   13900,           0,               22000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TorqueTbl2Gen11LtRpm",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   15000,           0,               22000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl2Torque1Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   0,               0,               35000000,        NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl2Torque2Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   540000,          0,               2250000,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_TorqueTbl2Torque3Nm",                    TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    10000,   UNIT_NONE,          3,   3825000,         0,               35000000,        NULL  ),
@@ -1008,13 +1008,14 @@ static void Init_Structures_From_Conf_File(void)
 #endif
 
 // Macros
-#define POWER(Rpm, Torque)     ((S32)(((S64)(PI_S64 * Rpm * Torque)) / ((S64)(SCALE_DIV_10000 * SCALE_DIV_100 * SCALE_DIV_10 * 60 / 2))))  // Optimized (SCALE_DIV_10000 for PI_S64 constant, SCALE_DIV_100 for RPM, SCALE_DIV_10 for Torque)
-#define GETTORQUE(Rpm, Power)  ((Rpm) != 0) ? ((S64)(((S64)(((S64)SCALE_DIV_10000 * SCALE_DIV_100 * SCALE_DIV_10 * 60 / 2) * (Power))) / (PI_S64 * ((S64)(Rpm))))) : 0  // Optimized (See above for original)
+#define POWER_SCALE_DENOM      ((S64)SCALE_DIV_10000 * SCALE_DIV_1000 * SCALE_DIV_10 * 60 / 2)
+#define POWER(Rpm, Torque)     ((S32)((PI_S64 * (S64)(Rpm) * (S64)(Torque)) / POWER_SCALE_DENOM))  // Optimized (SCALE_DIV_10000 for PI_S64 constant, SCALE_DIV_1000 for RPM, SCALE_DIV_10 for Torque)
+#define GETTORQUE(Rpm, Power)  ((Rpm) != 0) ? ((S64)((POWER_SCALE_DENOM * (S64)(Power)) / (PI_S64 * (S64)(Rpm)))) : 0  // Optimized (See above for original)
 
-U32 *ActTblRpm[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 100.
+U32 *ActTblRpm[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 1000.
 S32 *ActTblTorque[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 10.
 
-U32 *NewTblRpm[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 100.
+U32 *NewTblRpm[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 1000.
 S32 *NewTblTorque[TORQUE_TBL_MAX];  // Assuming DIV_SCALE 10.
 
 //-----------------------------------------------------------------------
@@ -1189,7 +1190,7 @@ static U8  V_FreezeTorqueSetpoint_old = 0;
     V_LocalControlRpm = V_ControllerRpm;
 
     //Call notchfilter
-    NotchReturn = TorqueNotchFilter((F32)V_LocalControlRpm / 100.0F) * 100.0F;
+    NotchReturn = TorqueNotchFilter((F32)V_LocalControlRpm / 1000.0F) * 1000.0F;
 
     V_TNotchRpmOutput = (NotchReturn > 0) ? (U32)NotchReturn : 0;
 
@@ -1223,7 +1224,7 @@ static U8  V_FreezeTorqueSetpoint_old = 0;
     {
         strncpy( V_AdaptiveTableEnabledText,"ENABLED", sizeof(V_AdaptiveTableEnabledText) );
 
-        if( V_TNotchRpmOutput > (P_CriticalRPM + P_OperGeneratorRpm) )
+        if( V_TNotchRpmOutput > (P_CriticalRPM + (P_OperGeneratorRpm * 10)) )
         {
             RPM_error = V_TNotchRpmOutput - Old_RPM ;
 
@@ -1645,7 +1646,7 @@ S32 GetTorqueFromRpmActTbl(/*In*/ U32 GeneratorRpm)
         return *ActTblTorque[SegL];
     }
 
-    // Align floating points (at SCALE 100), for fixed point integer math, and interpolate between
+    // Align floating points (at SCALE 1000), for fixed point integer math, and interpolate between
     // the segment boundary values.
 
     GenRpm  = GeneratorRpm;
@@ -1734,14 +1735,14 @@ S32 GetRpmFromPowerActTbl(/*In*/ U32 PowerLimit)
     // the segment boundary values.
 
     Power   = PowerLimit;
-    GenRpmL = *ActTblRpm[SegL] * 10;
-    GenRpmR = *ActTblRpm[SegR] * 10;
+    GenRpmL = *ActTblRpm[SegL];
+    GenRpmR = *ActTblRpm[SegR];
 
 
     GenRpmI = ((U64)Power - PowerL) * (GenRpmR - GenRpmL) / Diff + GenRpmL;
 
-    // Return (SCALE 100) rpm value.
-    return (GenRpmI / 10);
+    // Return (SCALE 1000) rpm value.
+    return GenRpmI;
 }
 
 
@@ -1874,7 +1875,7 @@ S32 GetTorqueFromRpmNewTbl(/*In*/ U32 GeneratorRpm)
         return *NewTblTorque[SegL];
     }
 
-    // Align floating points (at SCALE 100), for fixed point integer math, and interpolate between
+    // Align floating points (at SCALE 1000), for fixed point integer math, and interpolate between
     // the segment boundary values.
 
     GenRpm  = GeneratorRpm;

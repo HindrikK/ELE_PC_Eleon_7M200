@@ -66,7 +66,7 @@ char Pitch_copyright[] =
 
 static struct os_db_local LocalVars[] =
 {
-   VAR_ELEMENT_LOCAL("V_PitchRPMsetpoint",                       TYPE_U32,     PASSWORD_LEVEL_UNLOGGED_IN,        PASSWORD_LEVEL_UNLOGGED_IN,        SCALE_DIV,    100,     UNIT_RPM,           3,   0,               0,               20000,           NULL,  TOTLOG_ENABLE),
+   VAR_ELEMENT_LOCAL("V_PitchRPMsetpoint",                       TYPE_U32,     PASSWORD_LEVEL_UNLOGGED_IN,        PASSWORD_LEVEL_UNLOGGED_IN,        SCALE_DIV,    1000,    UNIT_RPM,           3,   0,               0,               200000,          NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_PitchPowersetpoint",                     TYPE_S32,     PASSWORD_LEVEL_UNLOGGED_IN,        PASSWORD_LEVEL_UNLOGGED_IN,        SCALE_DIV,    1000,    UNIT_KWATT,         1,   0,               0,               2500000,         NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_e_rpm",                                  TYPE_S32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               0,               NULL,  TOTLOG_ENABLE),
    VAR_ELEMENT_LOCAL("V_e_power",                                TYPE_S32,     PASSWORD_LEVEL_LICENCE_PROGRAMMER, PASSWORD_LEVEL_LICENCE_PROGRAMMER, SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               0,               NULL,  TOTLOG_ENABLE),
@@ -99,8 +99,8 @@ static struct os_db_local LocalVars[] =
 
 static struct os_db_parameter ParameterVars[] =
 {
-   VAR_ELEMENT_PARAMETER("P_RPMSpanPos",                             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    100,     UNIT_RPM,           2,   100,             0,               1000,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_RPMSpanNeg",                             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    100,     UNIT_RPM,           2,   45,              0,               1000,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_RPMSpanPos",                             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,     UNIT_RPM,          3,   1000,            0,               10000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_RPMSpanNeg",                             TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    1000,     UNIT_RPM,          3,   450,             0,               10000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_PowerSpanPos",                           TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_NONE,   0,       UNIT_KWATT,         0,   50,              0,               10000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_PowerSpanNeg",                           TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_NONE,   0,       UNIT_KWATT,         0,   50,              0,               10000,           NULL  ),
    VAR_ELEMENT_PARAMETER("P_PIDkp",                                  TYPE_S32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SERVICE,            SCALE_DIV,    10000,   UNIT_NONE,          4,   1370,            0,               10000,           NULL  ),
@@ -1493,7 +1493,8 @@ static void HighRpm(void)
 {
 	static S32 PitchSpeed;
 	S32 MaxPitchRPM;
-	MaxPitchRPM = ( ( (1000 + (P_MaxPitchRPM)) * P_OperGeneratorRpm) / 1000 );
+	S32 OperGeneratorRpm = P_OperGeneratorRpm * 10;
+	MaxPitchRPM = ( ( (1000 + (P_MaxPitchRPM)) * OperGeneratorRpm) / 1000 );
     if(V_ControllerRpm > MaxPitchRPM )
 	{
       PitchSpeed = P_HighRPMPitchSpeedFactor * ((V_ControllerRpm - MaxPitchRPM)^2);
@@ -1544,7 +1545,7 @@ static void SpeedToAngle(void)
 
     V_DebugAngleChange5 = TempSetP;
 
-    if ( V_ControllerRpm > ( ( (1000 + (P_HighRPMLimit)) * P_OperGeneratorRpm ) / 1000 ) && TempSetP < OldTempSetP )
+    if ( V_ControllerRpm > ( ( (1000 + (P_HighRPMLimit)) * (P_OperGeneratorRpm * 10) ) / 1000 ) && TempSetP < OldTempSetP )
 	{
       TempSetP = OldTempSetP;
 	}

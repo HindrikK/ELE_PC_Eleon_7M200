@@ -15620,8 +15620,8 @@ static S16 GetCorrectionValue_Cnv()
 
     // calculate indexes
     if (V_ControllerRpm < 0) { indexRpm = 0; }
-    else if (V_ControllerRpm > 1500) { indexRpm = NUM_OF_CNV_RPM_POINTS - 1; }
-    else { indexRpm = V_ControllerRpm / 5; }
+    else if (V_ControllerRpm > 15000) { indexRpm = NUM_OF_CNV_RPM_POINTS - 1; }
+    else { indexRpm = V_ControllerRpm / 50; }
     if (V_CNV_PowerSetpoint < 0) { indexPower = 0; }
     else if (V_CNV_PowerSetpoint > 40000) { indexPower = NUM_OF_CNV_POWER_POINTS - 1; }
     else { indexPower = V_CNV_PowerSetpoint / 1000; }
@@ -15658,7 +15658,7 @@ static void LearnCorrectionValue()
     // calculate rpm index
     if (V_ControllerRpm < 0) { return; }
     else if (V_ControllerRpm > MAX_TABLE_RPM) { return; }
-    else { indexRpm = V_ControllerRpm / 5; }
+    else { indexRpm = V_ControllerRpm / 50; }
     // calculate power index
     if (V_CNV_PowerSetpoint < 0) { return; }
     else if (V_CNV_PowerSetpoint > MAX_TABLE_POWER) { return; }
@@ -16116,8 +16116,8 @@ static S16 GetCorrectionValue_Gen()
 
     // calculate rpm index
     if (V_ControllerRpm < 0) { indexRpm = 0; }
-    else if (V_ControllerRpm > 1400) { indexRpm = NUM_OF_GEN_RPM_POINTS - 1; }
-    else { indexRpm = V_ControllerRpm / 100; }
+    else if (V_ControllerRpm > 14000) { indexRpm = NUM_OF_GEN_RPM_POINTS - 1; }
+    else { indexRpm = V_ControllerRpm / 1000; }
 
     // calculate correction in [0,1 kW] from correction percent [0,1 %] from generator active power
     return (S16)((V_CNV_ActivePower_Generator * CorrectionTable_Gen[indexDeg][indexRpm]) / 1000);      // = [0,1 kW] * [0,1%] / 1000
@@ -16973,7 +16973,7 @@ static void SimulatePowerTorque()
         powerSP_W = powerSP_W * ((F32)P_DLL_GenEfficiency / 100) / 100;          // include losses
         if (V_ControllerRpm > 0 && DLL_OUT_GenConnected)
         {
-            torque_Nm = powerSP_W * 10 / Rpm_To_RadS((F32)V_ControllerRpm / 100);            // calculate torque SP
+            torque_Nm = powerSP_W * 10 / Rpm_To_RadS((F32)V_ControllerRpm / 1000);            // calculate torque SP
         }
         else
         {

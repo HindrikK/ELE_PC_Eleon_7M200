@@ -25,19 +25,19 @@ Unit: kW
 Name: P_PAT_RatedSpeed
 Type: U32
 Value: 13.2
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_PAT_MinRpm
 Type: U32
 Value: 4.3
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_MaxOperGeneratorRpm
 Type: S32
 Value: 14.5
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 
@@ -126,13 +126,13 @@ Unit: s
 Name: P_PAT_StartupInitRpm
 Type: U32
 Value: 1.0
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_PAT_StartupRpm
 Type: U32
 Value: 4.7
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_PAT_PitchLimitInitial
@@ -150,8 +150,8 @@ Unit: deg/s
 Name: P_PAT_RpmAccLimStarting
 Type: S32
 Value: 0.16
-Scaling: 100
-Unit: deg/s*s
+Scaling: 1000
+Unit: rpm/s*s
 
 # BELOW RATED STATE
 
@@ -170,13 +170,13 @@ Unit: kW
 Name: P_PAT_RpmMaxBelowRated
 Type: U32
 Value: 12.9
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_PAT_BelowRatedPitchPIDRpm
 Type: U32
 Value: 13.38
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 # RATED SPEED
@@ -189,26 +189,26 @@ Unit: kW/s
 
 Name: P_PAT_PowerPID_Kp
 Type: F32
-Value: 8
+Value: 0.8
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_PowerPID_Ki
 Type: F32
-Value: 0.065
+Value: 0.0065
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_PowerPID_Kd
 Type: F32
-Value: 5
+Value: 0.5
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_RatedSpeedPitchPIDRpm
 Type: U32
 Value: 13.38
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 # RATED POWER STATE
@@ -221,26 +221,26 @@ Unit: kW/s
 
 Name: P_PAT_PitchPIDrated_Kp
 Type: F32
-Value: 6.4
+Value: 0.64
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_PitchPIDrated_Ki
 Type: F32
-Value: 0.045
+Value: 0.0045
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_PitchPIDrated_Kd
 Type: F32
-Value: 6.0
+Value: 0.6
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_RatedPowerPowerPIDRpm
 Type: U32
 Value: 12.85
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 # STOPPING STATES
@@ -298,7 +298,7 @@ Unit: kW/s
 Name: P_PAT_LimitedPowerPIDRpm
 Type: U32
 Value: 0.3
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 # LOW WIND STATE
@@ -370,7 +370,7 @@ Unit: kW
 Name: P_PAT_OVspd_RotorAccMax
 Type: S32
 Value: 0.2
-Scaling: 100
+Scaling: 1000
 Unit: rpm/s
 
 Name: P_PAT_OVspd_PitchSpd_1
@@ -396,24 +396,24 @@ Unit: s
 Name: P_PAT_OVSpd_Rpm
 Type: U32
 Value: 13.8
-Scaling: 100
+Scaling: 1000
 Unit: rpm
 
 Name: P_PAT_OVSpd_PitchPID_Kp
 Type: F32
-Value: 5.9
+Value: 0.59
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_OVSpd_PitchPID_Ki
 Type: F32
-Value: 0.042
+Value: 0.0042
 Scaling: 1
 Unit: gain
 
 Name: P_PAT_OVSpd_PitchPID_Kd
 Type: F32
-Value: 3.5
+Value: 0.35
 Scaling: 1
 Unit: gain
 

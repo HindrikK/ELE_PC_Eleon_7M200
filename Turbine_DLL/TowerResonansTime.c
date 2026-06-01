@@ -63,8 +63,8 @@ char TowerResonansTime_copyright[] =
 
 static struct os_db_parameter ParameterVars[] =
 {
-   VAR_ELEMENT_PARAMETER("P_TowerResonansRpmStart",                  TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   1900,            0,               2000,            NULL  ),
-   VAR_ELEMENT_PARAMETER("P_TowerResonansRpmStop",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    100,     UNIT_RPM,           2,   2000,            0,               2000,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TowerResonansRpmStart",                  TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   19000,           0,               20000,           NULL  ),
+   VAR_ELEMENT_PARAMETER("P_TowerResonansRpmStop",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_RPM,           3,   20000,           0,               20000,           NULL  ),
 };
 
 //-----------------------------------------------------------------------

@@ -8338,8 +8338,8 @@ static S16 GetCorrectionValue_Cnv()
 
     // calculate indexes
     if (V_ControllerRpm < 0) { indexRpm = 0; }
-    else if (V_ControllerRpm > 1500) { indexRpm = NUM_OF_CNV_RPM_POINTS - 1; }
-    else { indexRpm = V_ControllerRpm / 5; }
+    else if (V_ControllerRpm > 15000) { indexRpm = NUM_OF_CNV_RPM_POINTS - 1; }
+    else { indexRpm = V_ControllerRpm / 50; }
     if (V_CNV_PowerSetpoint < 0) { indexPower = 0; }
     else if (V_CNV_PowerSetpoint > 40000) { indexPower = NUM_OF_CNV_POWER_POINTS - 1; }
     else { indexPower = V_CNV_PowerSetpoint / 1000; }
@@ -8377,7 +8377,7 @@ static void LearnCorrectionValue()
     // calculate rpm index
     if (V_ControllerRpm < 0) { return; }
     else if (V_ControllerRpm > MAX_TABLE_RPM) { return; }
-    else { indexRpm = V_ControllerRpm / 5; }
+    else { indexRpm = V_ControllerRpm / 50; }
     // calculate power index
     if (V_CNV_PowerSetpoint < 0) { return; }
     else if (V_CNV_PowerSetpoint > MAX_TABLE_POWER) { return; }
@@ -9101,14 +9101,14 @@ static void Update_ControlData()
     
     
     Converter.ControlData.Stator_Temperature = V_GENC_MaxGeneratorTemp;
-    Converter.ControlData.Rotor_Speed = (S16)V_GEN_EncoderRpm;
+    Converter.ControlData.Rotor_Speed = (U16)((V_GEN_EncoderRpm + 5) / 10);
     
     // calculate encoder value shift amount for actual rotor speed and shift time
 //    // ENCODER 1
-//    F32 shiftAmount = (V_GEN_EncoderRpm / 60 / 1000) * (P_GEN_EncoderPulsPerRev * 4) * P_LCNV_VirtEncoder2_TimeShift;
+//    F32 shiftAmount = ((F32)V_GEN_EncoderRpm / 1000.0F / 60.0F) * (P_GEN_EncoderPulsPerRev * 4) * P_LCNV_VirtEncoder2_TimeShift;
 //    V_GEN_Encoder2_Shifted = (U32)(AI_GEN_Encoder2Counter + shiftAmount + 0.5) % (P_GEN_EncoderPulsPerRev * 4);
     // ENCODER 2
-    F32 shiftAmount = (V_GEN_EncoderRpm / 60 / 1000) * ROTOR_ENCODER2_PPR * P_LCNV_Encoder2_TimeShift;
+    F32 shiftAmount = ((F32)V_GEN_EncoderRpm / 1000.0F / 60.0F) * ROTOR_ENCODER2_PPR * P_LCNV_Encoder2_TimeShift;
     Converter.ControlData.Rotor_Position = (U32)(AI_GEN_Encoder2Counter + shiftAmount + 0.5) % ROTOR_ENCODER2_PPR;
     
     // debug data can be enabled/disabled in any time
@@ -9237,7 +9237,7 @@ static void SimulatePowerTorque()
             powerSP_kW = powerSP_kW * ((F32)P_DLL_GenEfficiency / 100);          // include losses
             if (V_ControllerRpm > 0 && DLL_OUT_GenConnected)
             {
-                torque_kNm = powerSP_kW / Rpm_To_RadS((F32)V_ControllerRpm / 100);            // calculate torque SP
+                torque_kNm = powerSP_kW / Rpm_To_RadS((F32)V_ControllerRpm / 1000);            // calculate torque SP
             }
             else
             {

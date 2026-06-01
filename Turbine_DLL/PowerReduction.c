@@ -1408,7 +1408,7 @@ static S32 GenTempReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1488,7 +1488,7 @@ static S32 CnvIGBTTempReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1568,7 +1568,7 @@ static S32 CnvControlTempReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1648,7 +1648,7 @@ static S32 CnvInductTempReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1728,7 +1728,7 @@ static S32 NacelleTempReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1831,7 +1831,7 @@ static S32 WindLoadReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
@@ -1915,7 +1915,7 @@ static S32 NacelleAccReduction()
             {
                 step = 0;
             }
-            else if (V_ControllerRpm < 200)	// if turbine not running(speed less than 2,00 rpm)
+            else if (V_ControllerRpm < 2000)	// if turbine not running(speed less than 2,000 rpm)
             {
                step = 0;
             }
