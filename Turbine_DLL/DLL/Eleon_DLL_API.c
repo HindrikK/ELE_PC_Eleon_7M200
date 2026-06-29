@@ -42,6 +42,11 @@ float GetPitchAngle_3() {
 	return DLL_OUT_PitchAngle_3;
 }
 
+__declspec(dllexport)
+float GetControllerRpm() {
+	return DLL_OUT_ControllerRpm;
+}
+
 
 __declspec(dllexport)
 void SetInitialize(unsigned char  Initialize) {

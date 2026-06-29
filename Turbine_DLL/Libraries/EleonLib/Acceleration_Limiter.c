@@ -37,6 +37,7 @@ struct AccLim
 // Validate object reference; Returns FALSE if invalid object reference
 static BOOL AccLim_ValidateObject(Acceleration_Limiter accLim)
 {
+	if (accLim == NULL) return false;
 	if (accLim->Type == 137) return true;
 	else return false;
 }
@@ -45,13 +46,14 @@ static BOOL AccLim_ValidateObject(Acceleration_Limiter accLim)
 // Load parameters
 S32 AccLim_LoadParameters(Acceleration_Limiter accLim, F32 accel, F32 decel)
 {
+	F32 sampleRateSquared;
+
 	if (!AccLim_ValidateObject(accLim)) return -1;			   // pointer to invalid object structure
-	accLim->accOutput = accel / accLim->sampleRate;
-	accLim->decOutput = decel / accLim->sampleRate;
-	//if (accLim->accOutput == 0 || accLim->decOutput == 0)
-	//{
-	//	return -2;		// invalid values
-	//}
+	if (accel <= 0 || decel <= 0 || accLim->sampleRate == 0) return -2;		// invalid values
+
+	sampleRateSquared = (F32)accLim->sampleRate * (F32)accLim->sampleRate;
+	accLim->accOutput = accel / sampleRateSquared;
+	accLim->decOutput = decel / sampleRateSquared;
 
 	return 0;
 }
@@ -72,18 +74,21 @@ S32 AccLim_Reset(Acceleration_Limiter accLim, F32 output)
 Acceleration_Limiter AccLim_New(F32 accel, F32 decel, U32 timeBase, U32 timeStep)
 {
 	void* accLim;
+	U32 sampleRate;
+	int result;
 
-	int result = OS_Allocate_Memory(GetMemPool(), &accLim, sizeof(struct AccLim), OS_NO_SUSPEND);
+	if (timeStep == 0) { return NULL; }
+	sampleRate = timeBase / timeStep;
+	if (sampleRate == 0 || accel <= 0 || decel <= 0) { return NULL; }
+
+	result = OS_Allocate_Memory(GetMemPool(), &accLim, sizeof(struct AccLim), OS_NO_SUSPEND);
 	if (result != OS_SUCCESS) { return NULL; }
 
 	((Acceleration_Limiter)accLim)->Type = 137;
 	((Acceleration_Limiter)accLim)->TimeBase = timeBase;
 	((Acceleration_Limiter)accLim)->TimeStep = timeStep;
-	if (timeStep == 0) { return NULL; }
-	((Acceleration_Limiter)accLim)->sampleRate = timeBase / timeStep;
-	if (((Acceleration_Limiter)accLim)->sampleRate == 0) { return NULL; }
-	((Acceleration_Limiter)accLim)->accOutput = accel / ((Acceleration_Limiter)accLim)->sampleRate;
-	((Acceleration_Limiter)accLim)->decOutput = decel / ((Acceleration_Limiter)accLim)->sampleRate;
+	((Acceleration_Limiter)accLim)->sampleRate = sampleRate;
+	AccLim_LoadParameters((Acceleration_Limiter)accLim, accel, decel);
 	((Acceleration_Limiter)accLim)->Output = 0;
 	((Acceleration_Limiter)accLim)->speedOutput = 0;
 
@@ -134,8 +139,16 @@ F32 AccLim_Control(Acceleration_Limiter accLim, F32 Input)
    }
    else     // input and output values are closer than accOutput and decOutput
    {
-      accLim->speedOutput = 0;
-      accLim->Output = Input;
+      if(accLim->speedOutput <= accLim->decOutput && accLim->speedOutput >= -(accLim->decOutput))
+      {
+         accLim->speedOutput = 0;
+         accLim->Output = Input;
+         return accLim->Output;
+      }
+
+      if(accLim->speedOutput > 0) { accLim->speedOutput -= accLim->decOutput; }
+      else if(accLim->speedOutput < 0){ accLim->speedOutput += accLim->decOutput; }
+      accLim->Output += accLim->speedOutput;
       return accLim->Output;
    }
    

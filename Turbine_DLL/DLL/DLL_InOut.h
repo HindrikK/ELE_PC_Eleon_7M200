@@ -25,6 +25,7 @@ unsigned char DLL_OUT_GenConnected;
 float DLL_OUT_PitchAngle_1;
 float DLL_OUT_PitchAngle_2;
 float DLL_OUT_PitchAngle_3;
+float DLL_OUT_ControllerRpm;
 
 
 // DLL input and output variable pointers
@@ -52,6 +53,7 @@ static BOOL* DLL_OUT_GenConnected_value;
 static F32* DLL_OUT_PitchAngle_1_value;
 static F32* DLL_OUT_PitchAngle_2_value;
 static F32* DLL_OUT_PitchAngle_3_value;
+static F32* DLL_OUT_ControllerRpm_value;
 
 
 int DLL_Initialize_Variables();

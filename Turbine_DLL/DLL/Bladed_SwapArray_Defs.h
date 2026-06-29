@@ -171,7 +171,13 @@
 /* 115-116 reserved */
 
 /* 117-119 */
-#define SWAP_CONTROLLER_STATE                             117  /* Controller state [ - ] */
+#define SWAP_CONTROLLER_STATE                             117  /* Controller state  0: Power production
+                                                                                    1: Parked
+                                                                                    2: Idling
+                                                                                    3: Startup
+                                                                                    4: Normal stop
+                                                                                    5: Emergency stop
+                                                                                    */
 #define SWAP_SETTLING_TIME                                118  /* Settling time (time to start writing output) [s] */
 #define SWAP_RESERVED_119_SETTEETERLOCK                   119  /* Reserved (SetTeeterLock) [ - ] */
 

@@ -1896,7 +1896,7 @@ static S32 Initialize()
 
     //PitchHysteresis = HystUpDown_New(15/*hysteresis*/, 0/*low_Limit*/, 9000/*high_Limit*/);
     PitchHysteresis = Hyst_v2_New(20/*hysteresis*/, 0/*low_Limit*/, 9000/*high_Limit*/, 1000/*mid_period*/, 2000/*mid_delay*/, PAT_SCAN_TIME/*timeStep*/);
-    PitchAccLim = AccLim_New(0/*accel*/, 0/*decel*/, 1000/*timeBase*/, PAT_SCAN_TIME/*timeStep*/);
+    PitchAccLim = AccLim_New(1/*accel*/, 1/*decel*/, 1000/*timeBase*/, PAT_SCAN_TIME/*timeStep*/);
 
     RotorSpeedAccel = Derivative_New(50/*D_period*/, 1000/*TimeBase*/, PAT_SCAN_TIME/*TimeStep*/, 0/*InitValue*/);
     if (RotorSpeedAccel == NULL)
@@ -2976,7 +2976,7 @@ static S32 GetWindPitchMinFromTbl()
     else
     {
         indexWind = (V_WindSpeed3Sec / PAT_WINDPITCHMIN_WINDINDEX_DIV) - (PAT_WINDPITCHMIN_TABLE_MIN_WIND / PAT_WINDPITCHMIN_WINDINDEX_DIV);
-        if (indexWind >= PAT_NUM_OF_WINDPITCHMIN_POINTS)
+        if (indexWind >= PAT_NUM_OF_WINDPITCHMIN_POINTS - 1)
         {
             return PAT_WindMinPitchTable[PAT_NUM_OF_WINDPITCHMIN_POINTS - 1];
         }
@@ -3709,11 +3709,11 @@ static void RampUp(BOOL firstentry)
                 V_PAT_PowerSetpoint = GenNominalPower;  // set exactly rated power before going to rated power state
                 StateFunctionPointer = RatedPower;
             }
-            else if (V_PAT_PowerSetpoint >= P_PAT_PwrMaxBelowRated && V_ControllerRpm > P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 10))
+            else if (V_PAT_PowerSetpoint >= P_PAT_PwrMaxBelowRated && V_ControllerRpm > P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 10))
             {
                 StateFunctionPointer = RatedSpeed;
             }
-            else if (V_ControllerRpm >= P_PAT_MinRpm && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 5) && V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PowerSetpoint < P_PAT_PwrMaxBelowRated)
+            else if (V_ControllerRpm >= P_PAT_MinRpm && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 5) && V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PowerSetpoint < P_PAT_PwrMaxBelowRated)
             {
                 StateFunctionPointer = BelowRated;
             }
@@ -3782,11 +3782,11 @@ static void RampUp(BOOL firstentry)
                 V_PAT_PowerSetpoint = GenNominalPower;  // set exactly rated power before going to rated power state
                 StateFunctionPointer = RatedPower;
             }
-            else if (V_PAT_PowerSetpoint >= P_PAT_PwrMaxBelowRated && V_ControllerRpm > P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 10))
+            else if (V_PAT_PowerSetpoint >= P_PAT_PwrMaxBelowRated && V_ControllerRpm > P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 10))
             {
                 StateFunctionPointer = RatedSpeed;
             }
-            else if (V_ControllerRpm >= P_PAT_MinRpm && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 5) && V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PowerSetpoint < P_PAT_PwrMaxBelowRated)
+            else if (V_ControllerRpm >= P_PAT_MinRpm && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 5) && V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PowerSetpoint < P_PAT_PwrMaxBelowRated)
             {
                 StateFunctionPointer = BelowRated;
             }
@@ -4038,7 +4038,7 @@ static void RatedSpeed(BOOL firstentry)
     {
         StateFunctionPointer = RatedPower;
     }
-    else if (V_PAT_PowerPID <= P_PAT_PwrMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 10) && V_ControllerRpm < P_PAT_RatedSpeed)
+    else if (V_PAT_PowerPID <= P_PAT_PwrMaxBelowRated && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 10) && V_ControllerRpm < P_PAT_RatedSpeed)
     {
         StateFunctionPointer = BelowRated;
     }
@@ -4204,7 +4204,7 @@ static void RatedPower(BOOL firstentry)
     // EXIT CONDITIONS
     //-----------------------------------------------------------------------
 
-    if (V_ControllerRpm < (P_PAT_RatedSpeed - 100) && V_PAT_PitchAngleSP_CPC <= (P_PAT_PitchAngleMin + 20))
+    if (V_ControllerRpm < (P_PAT_RatedSpeed - 100) && V_PAT_PitchAngleSP_CPC <= (PitchAngleMin + 20))
     {
         StateFunctionPointer = RatedSpeed;
     }
@@ -4429,17 +4429,17 @@ static void LimitedPower(BOOL firstentry)
             {
                 StateFunctionPointer = RatedPower;
             }
-            else if ((GridRealPower3Sec + 30/*30 kW*/) < P_PAT_GridNominalPower && V_PAT_PitchAngleSP_CPC <= P_PAT_PitchAngleMin)
+            else if ((GridRealPower3Sec + 30/*30 kW*/) < P_PAT_GridNominalPower && V_PAT_PitchAngleSP_CPC <= PitchAngleMin)
             {
                 StateFunctionPointer = RatedSpeed;
             }
         }
-        else if (V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= P_PAT_PitchAngleMin && V_PAT_PowerSetpoint < (GetPowerFromRpmTbl() + V_PAT_PowerComp))
+        else if (V_ControllerRpm < P_PAT_RpmMaxBelowRated && V_PAT_PitchAngleSP_CPC <= PitchAngleMin && V_PAT_PowerSetpoint < (GetPowerFromRpmTbl() + V_PAT_PowerComp))
         {
             StateFunctionPointer = BelowRated;
         }
     }
-    else if (V_ControllerRpm < SpeedRef && V_PAT_PitchAngleSP_CPC <= P_PAT_PitchAngleMin)  // when wind drops, blades are at 0 deg and rpm starts to drop below desired value
+    else if (V_ControllerRpm < SpeedRef && V_PAT_PitchAngleSP_CPC <= PitchAngleMin)  // when wind drops, blades are at minimum and rpm starts to drop below desired value
     {
         if (V_PAT_PowerSetpoint < P_PAT_PwrMaxBelowRated && V_PAT_PowerSetpoint < (GetPowerFromRpmTbl() + V_PAT_PowerComp))    // when power lower than below rated max and power lower than the rpm lookup table reference
         {
@@ -5616,19 +5616,14 @@ static void IndividualPitchControl()
 
 static void UpdatePitchSetpoints()
 {
-    // min pitch angle handling
-    PitchAngleMin = V_PAT_WindPitchMinAngle;
-    V_PAT_WindPitchMinAngle = GetWindPitchMinFromTbl();
-    if (V_PAT_WindPitchMinAngle > P_PAT_PitchAngleMin) PitchAngleMin = V_PAT_WindPitchMinAngle;
-    
     // absolute angle limits for collective pitch
     if (V_PAT_PitchAngleSP_CPC > P_PAT_PitchAngleStop)
     {
         V_PAT_PitchAngleSP_CPC = P_PAT_PitchAngleStop;
     }
-    else if (V_PAT_PitchAngleSP_CPC < P_PAT_PitchAngleMin)
+    else if (V_PAT_PitchAngleSP_CPC < PitchAngleMin)
     {
-        V_PAT_PitchAngleSP_CPC = P_PAT_PitchAngleMin;
+        V_PAT_PitchAngleSP_CPC = PitchAngleMin;
     }
     
     if (P_PAT_IndividualPitch_Enable)
@@ -5711,6 +5706,11 @@ static STATUS LocalCtrl( U32 Interval )
     {
         V_PAT_BladesInStopPosition = false;
     }
+
+    // wind pitch min angle update
+    V_PAT_WindPitchMinAngle = GetWindPitchMinFromTbl();
+    PitchAngleMin = V_PAT_WindPitchMinAngle;
+    if (V_PAT_WindPitchMinAngle < P_PAT_PitchAngleMin) PitchAngleMin = P_PAT_PitchAngleMin;
 
 
     //***********************************************************************

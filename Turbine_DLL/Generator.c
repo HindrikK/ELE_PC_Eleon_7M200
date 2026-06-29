@@ -169,10 +169,10 @@ static struct os_db_parameter ParameterVars[] =
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFiltTbl_FileName",                TYPE_STRING + sizeof(A_P_GEN_RpmFiltTbl_FileName) - 1,  PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   A_P_GEN_RpmFiltTbl_FileName, 0,                0,                NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFilterHysteresis",                TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_DIV,    1000,     UNIT_RPM,           3,   0,               U16_MIN,         U16_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_RpmFilterHystMidDelay",              TYPE_U16,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_DIV,    1000,    UNIT_SECOND,        1,   1000,            U16_MIN,         U16_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER("P_GEN_RpmFilt_Enable",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   0,               0,               1,               NULL  ),
-   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_Accel",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       3,   0.3F,            F32_MIN,         F32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_Decel",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       3,   0.3F,            F32_MIN,         F32_MAX,         NULL  ),
-   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_DiffLim",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPM,           3,   0.1F,            0.0F,            1.0F,            NULL  ),
+   VAR_ELEMENT_PARAMETER("P_GEN_RpmFilt_Enable",                     TYPE_U8,      PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_ADMINISTRATOR,      SCALE_NONE,   0,       UNIT_NONE,          0,   1,               0,               1,               NULL  ),
+   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_Accel",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       3,   0.1F,            F32_MIN,         F32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_Decel",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPMPSEC,       3,   0.1F,            F32_MIN,         F32_MAX,         NULL  ),
+   VAR_ELEMENT_PARAMETER_F32("P_GEN_RpmFilt_DiffLim",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPM,           3,   0.1F,           0.0F,            1.0F,            NULL  ),
    VAR_ELEMENT_PARAMETER("P_GEN_Encoder2_DiffLim",                   TYPE_U32,     PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,         SCALE_NONE,   0,       UNIT_NONE,          0,   200,             U32_MIN,         U32_MAX,         NULL  ),
    VAR_ELEMENT_PARAMETER_F32("P_GEN_Encoder2_AccLim",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NONE,          0,   20.0F,           F32_MIN,         F32_MAX,         NULL  ),
 };
@@ -1688,6 +1688,262 @@ static Acceleration_Limiter RpmAccLimFilter;
 //struct EncoderFilter VirtEncAccLimFilter;
 
 
+//// ALTERNATIVE FILTER 2nd order low-pass filter
+////**************************************************************
+//typedef struct
+//{
+//    float b0, b1, b2;
+//    float a1, a2;
+//
+//    float x1, x2;
+//    float y1, y2;
+//} BiquadLp2;
+//
+//static void biquad_lp2_init(BiquadLp2* f, float sample_time_s, float fc_hz, float q)
+//{
+//    const float fs = 1.0f / sample_time_s;
+//
+//    const float w0 = 2.0f * 3.14159265358979323846f * fc_hz / fs;
+//    const float c = cosf(w0);
+//    const float s = sinf(w0);
+//    const float alpha = s / (2.0f * q);
+//
+//    const float b0 = (1.0f - c) * 0.5f;
+//    const float b1 = 1.0f - c;
+//    const float b2 = (1.0f - c) * 0.5f;
+//    const float a0 = 1.0f + alpha;
+//    const float a1 = -2.0f * c;
+//    const float a2 = 1.0f - alpha;
+//
+//    f->b0 = b0 / a0;
+//    f->b1 = b1 / a0;
+//    f->b2 = b2 / a0;
+//    f->a1 = a1 / a0;
+//    f->a2 = a2 / a0;
+//
+//    f->x1 = 0.0f;
+//    f->x2 = 0.0f;
+//    f->y1 = 0.0f;
+//    f->y2 = 0.0f;
+//}
+//
+//static void biquad_lp2_reset(BiquadLp2* f, float value)
+//{
+//    f->x1 = value;
+//    f->x2 = value;
+//    f->y1 = value;
+//    f->y2 = value;
+//}
+//
+//static float biquad_lp2_update(BiquadLp2* f, float x)
+//{
+//    const float y =
+//        f->b0 * x +
+//        f->b1 * f->x1 +
+//        f->b2 * f->x2 -
+//        f->a1 * f->y1 -
+//        f->a2 * f->y2;
+//
+//    f->x2 = f->x1;
+//    f->x1 = x;
+//
+//    f->y2 = f->y1;
+//    f->y1 = y;
+//
+//    return y;
+//}
+//
+////BiquadLp2 newRpmFilter;
+////**************************************************************
+
+
+//// ALTERNATIVE FILTER first order low-pass filter
+////**************************************************************
+//
+//typedef struct
+//{
+//    float sample_time_s;       /* default 0.020 */
+//    float max_slope_rpm_s;     /* default 0.300 */
+//
+//    float lp_tau_s;            /* default 0.040 */
+//
+//    float osc_amp_rpm;         /* default 0.300, used for guard start */
+//    float guard_gap_rpm;       /* default 0.400 */
+//    float guard_tau_s;         /* default 0.030 */
+//    float guard_lp_tau_s;      /* default 0.030 */
+//} RpmFilterConfig;
+//
+//typedef struct
+//{
+//    RpmFilterConfig cfg;
+//
+//    BOOL initialized;
+//
+//    float y_rpm;
+//    float x_lp_rpm;
+//
+//    float lp_alpha;
+//
+//    float guard_error_lp;
+//    float guard_alpha;
+//    float guard_start_rpm;
+//} RpmFilter;
+//
+//static float rpm_clampf(float x, float lo, float hi)
+//{
+//    if (x < lo) return lo;
+//    if (x > hi) return hi;
+//    return x;
+//}
+//
+//static float rpm_smoothstep(float u)
+//{
+//    u = rpm_clampf(u, 0.0f, 1.0f);
+//    return u * u * (3.0f - 2.0f * u);
+//}
+//
+//static RpmFilterConfig rpm_filter_default_config(void)
+//{
+//    RpmFilterConfig c;
+//
+//    c.sample_time_s = 0.020f;
+//    c.max_slope_rpm_s = 0.200f;
+//
+//    c.lp_tau_s = 0.040f;
+//
+//    c.osc_amp_rpm = 0.200f;
+//    c.guard_gap_rpm = 0.300f;
+//    c.guard_tau_s = 0.030f;
+//    c.guard_lp_tau_s = 0.030f;
+//
+//    return c;
+//}
+//
+//void rpm_filter_init(RpmFilter* f, const RpmFilterConfig* user_cfg)
+//{
+//    RpmFilterConfig c = rpm_filter_default_config();
+//
+//    if (user_cfg != 0)
+//        c = *user_cfg;
+//
+//    if (c.sample_time_s <= 0.0f)    c.sample_time_s = 0.020f;
+//    if (c.max_slope_rpm_s <= 0.0f)  c.max_slope_rpm_s = 0.300f;
+//    if (c.lp_tau_s <= 0.0f)         c.lp_tau_s = 0.040f;
+//    if (c.guard_gap_rpm <= 0.0f)    c.guard_gap_rpm = 0.400f;
+//    if (c.guard_tau_s <= 0.0f)      c.guard_tau_s = 0.030f;
+//    if (c.guard_lp_tau_s <= 0.0f)   c.guard_lp_tau_s = 0.030f;
+//    if (c.osc_amp_rpm < 0.0f)       c.osc_amp_rpm = 0.300f;
+//
+//    f->cfg = c;
+//    f->initialized = false;
+//
+//    f->y_rpm = 0.0f;
+//    f->x_lp_rpm = 0.0f;
+//    f->guard_error_lp = 0.0f;
+//
+//    f->lp_alpha =
+//        1.0f - expf(-c.sample_time_s / c.lp_tau_s);
+//
+//    f->guard_alpha =
+//        1.0f - expf(-c.sample_time_s / c.guard_lp_tau_s);
+//
+//    f->guard_start_rpm = c.osc_amp_rpm + 0.05f;
+//
+//    {
+//        float max_start = 0.85f * c.guard_gap_rpm;
+//        if (f->guard_start_rpm > max_start)
+//            f->guard_start_rpm = max_start;
+//    }
+//
+//    if (f->guard_start_rpm >= c.guard_gap_rpm)
+//        f->guard_start_rpm = 0.80f * c.guard_gap_rpm;
+//}
+//
+//void rpm_filter_reset(RpmFilter* f, float rpm)
+//{
+//    f->initialized = true;
+//
+//    f->y_rpm = rpm;
+//    f->x_lp_rpm = rpm;
+//    f->guard_error_lp = 0.0f;
+//}
+//
+//float rpm_filter_update(RpmFilter* f, float raw_rpm)
+//{
+//    if (!isfinite(raw_rpm))
+//        return f->y_rpm;
+//
+//    if (!f->initialized)
+//    {
+//        rpm_filter_reset(f, raw_rpm);
+//        return f->y_rpm;
+//    }
+//
+//    /*
+//     * 1. Light low-pass prefilter.
+//     */
+//    f->x_lp_rpm += f->lp_alpha * (raw_rpm - f->x_lp_rpm);
+//
+//    /*
+//     * 2. Persistent raw-output gap monitor.
+//     *    Low-passed so single-sample spikes do not immediately trigger guard.
+//     */
+//    {
+//        float raw_error = raw_rpm - f->y_rpm;
+//
+//        f->guard_error_lp +=
+//            f->guard_alpha * (raw_error - f->guard_error_lp);
+//    }
+//
+//    /*
+//     * 3. Smooth guard blend.
+//     */
+//    {
+//        float abs_guard_error = fabsf(f->guard_error_lp);
+//
+//        float guard_span =
+//            fmaxf(f->cfg.guard_gap_rpm - f->guard_start_rpm, 1.0e-6f);
+//
+//        float guard_u =
+//            (abs_guard_error - f->guard_start_rpm) / guard_span;
+//
+//        float guard_w = rpm_smoothstep(guard_u);
+//
+//        float target_rpm =
+//            (1.0f - guard_w) * f->x_lp_rpm +
+//            guard_w * raw_rpm;
+//
+//        /*
+//         * 4. Slew-limited observer.
+//         */
+//        float extra_slew_rpm_s = 0.0f;
+//
+//        if (abs_guard_error > f->guard_start_rpm)
+//        {
+//            extra_slew_rpm_s =
+//                guard_w *
+//                (abs_guard_error - f->guard_start_rpm) /
+//                f->cfg.guard_tau_s;
+//        }
+//
+//        {
+//            float max_step =
+//                (f->cfg.max_slope_rpm_s + extra_slew_rpm_s) *
+//                f->cfg.sample_time_s;
+//
+//            float drive = target_rpm - f->y_rpm;
+//            float step = rpm_clampf(drive, -max_step, max_step);
+//
+//            f->y_rpm += step;
+//        }
+//    }
+//
+//    return f->y_rpm;
+//}
+//
+//RpmFilter newRpmFilter;
+////**************************************************************
+
 
 static S32 LinearConvertion(S32 Value, S32 MinIn, S32 MaxIn, S32 MinOut, S32 MaxOut)
 {
@@ -2119,7 +2375,7 @@ static STATUS Initialize()
 	
 	RpmFilter_Hyst = Hyst_v2_New(0/*hysteresis*/, 0/*low_Limit- 0rpm*/, 20/*high_Limit- 20,0rpm*/, 1000/*mid_period*/, 1000/*mid_delay*/, GEN_SCAN_TIME/*timeStep*/);
     if(RpmFilter_Hyst == NULL) return -5;
-    RpmAccLimFilter = AccLim_New(0/*accel*/, 0/*decel*/, 1000/*timeBase*/, GEN_SCAN_TIME/*timeStep*/);
+    RpmAccLimFilter = AccLim_New(1/*accel*/, 1/*decel*/, 1000/*timeBase*/, GEN_SCAN_TIME/*timeStep*/);
     
 //    // initialize virtual encoder filter
 //    VirtEncAccLimFilter.TimeBase = 1000;
@@ -2138,6 +2394,14 @@ static STATUS Initialize()
     
     // load rpm filter table
     if (P_GEN_RpmFiltTbl_Enable) { LoadFilterTable_Rpm(); }
+
+    //biquad_lp2_init(&newRpmFilter, 0.020f, 0.182f, 0.70710678f);
+
+    //RpmFilterConfig rpmFilterCfg = rpm_filter_default_config();
+    //rpmFilterCfg.lp_tau_s = 0.040f;   /* 40 ms */
+    //rpmFilterCfg.max_slope_rpm_s = 0.300f;
+    //rpmFilterCfg.guard_gap_rpm = 0.400f;
+    //rpm_filter_init(&newRpmFilter, &rpmFilterCfg);
 
 	return LocalStatus;
 }
@@ -2497,42 +2761,38 @@ static void UpdateRotorRpm(void)
         rpm = V_ControllerRpm_FiltTbl;
     }
 
-
-    // advanced rpm filter
-    //****************************************************************************************
-    // average of prev and new value
-    V_ControllerRpm_Filt = (rpm + rpm_prev) / 2;
-    rpm_prev = V_ControllerRpm_Filt;
-
-    // dV/dt limiter
-    V_ControllerRpm_Filt = AccLim_Control(RpmAccLimFilter, rpm);
-    if(V_ControllerRpm_Filt < 0)
-    {
-      V_ControllerRpm_Filt = 0;     // prevent negative value because V_ControllerRpm variable is unsigned type
-    }
-
-    // prevent the filtered value from lagging the measured value too much
-    if(V_ControllerRpm_Filt < (rpm - P_GEN_RpmFilt_DiffLim))
-    {
-      V_ControllerRpm_Filt = rpm - P_GEN_RpmFilt_DiffLim;
-    }
-    else if (V_ControllerRpm_Filt > (rpm + P_GEN_RpmFilt_DiffLim))
-    {
-      V_ControllerRpm_Filt = rpm + P_GEN_RpmFilt_DiffLim;
-    }
-    //****************************************************************************************
-
-    if(P_GEN_RpmFilt_Enable)
-    {
-      rpm = V_ControllerRpm_Filt;
-    }
-
     // rpm hysteresis
-    if(P_GEN_RpmFilterHysteresis > 0)
+    if (P_GEN_RpmFilterHysteresis > 0)
     {
         rpm = Hyst_v2_Control(RpmFilter_Hyst, rpm);
     }
 
+
+    // advanced rpm filter
+    //****************************************************************************************
+    // dV/dt limiter
+    V_ControllerRpm_Filt = AccLim_Control(RpmAccLimFilter, rpm);
+    if (V_ControllerRpm_Filt < 0)
+    {
+        V_ControllerRpm_Filt = 0;     // prevent negative value because V_ControllerRpm variable is unsigned type
+    }
+    
+    if (P_GEN_RpmFilt_Enable)
+    {
+        rpm = V_ControllerRpm_Filt;
+    }
+    //****************************************************************************************
+
+    
+ //   // ALTERNATIVE FILTER
+ //   //**************************************************************
+ //   
+ //   //rpm = biquad_lp2_update(&newRpmFilter, rpm);
+	//rpm = rpm_filter_update(&newRpmFilter, rpm);
+
+ //   //**************************************************************
+    
+    
     V_ControllerRpm = (U32)((rpm + 0.0005) * 1000);
 }
 

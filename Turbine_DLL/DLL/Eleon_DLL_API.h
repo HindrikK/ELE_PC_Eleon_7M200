@@ -65,7 +65,10 @@ __declspec(dllexport)
 float GetPitchAngle_1();
 __declspec(dllexport)
 float GetPitchAngle_2();
-__declspec(dllexport) float GetPitchAngle_3();
+__declspec(dllexport)
+float GetPitchAngle_3();
+__declspec(dllexport)
+float GetControllerRpm();
 
 __declspec(dllexport)
 void SetInitialize(unsigned char);

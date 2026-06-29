@@ -74,6 +74,7 @@ static struct os_db_local LocalVars[] =
    VAR_ELEMENT_LOCAL_F32("DLL_IN_PitchAngle_2",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_DEGREE,        2,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("DLL_IN_PitchAngle_3",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_DEGREE,        2,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("DLL_IN_RotorAzimuth",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_DEGREE,        0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
+   VAR_ELEMENT_LOCAL_F32("DLL_OUT_ControllerRpm",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_RPM,           0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("DLL_OUT_PowerSetpoint",                             PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_KWATT,         0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("DLL_OUT_GenTorque",                                 PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_NM,            0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
    VAR_ELEMENT_LOCAL_F32("DLL_OUT_PowerOutput",                               PASSWORD_LEVEL_END_CUSTOMER,       PASSWORD_LEVEL_SUPERVISOR,                              UNIT_KWATT,         0,   0.0F,            F32_MIN,         F32_MAX,         NULL,  NOLOG_ENABLE),
@@ -182,6 +183,7 @@ static S32 AI_GridRealPower = 0;
 static S32 V_MDSActPitchAngleA = 0;
 static S32 V_MDSActPitchAngleB = 0;
 static S32 V_MDSActPitchAngleC = 0;
+static S32 V_ControllerRpm = 0;
 
 //-----------------------------------------------------------------------
 static struct ModulInOut ModulInputs[] =
@@ -206,6 +208,7 @@ static struct ModulInOut ModulInputs[] =
    {"V_MDSActPitchAngleA",                      &V_MDSActPitchAngleA,                      sizeof(V_MDSActPitchAngleA),                      },
    {"V_MDSActPitchAngleB",                      &V_MDSActPitchAngleB,                      sizeof(V_MDSActPitchAngleB),                      },
    {"V_MDSActPitchAngleC",                      &V_MDSActPitchAngleC,                      sizeof(V_MDSActPitchAngleC),                      },
+   {"V_ControllerRpm",                          &V_ControllerRpm,                          sizeof(V_ControllerRpm),                          },
 };
 
 //-----------------------------------------------------------------------
@@ -287,6 +290,7 @@ static STATUS InputReferenceRoutine(U8 ModuleState)
 
 // Create local variable
 #define MODUL_OUTPUTS
+static F32 DLL_OUT_ControllerRpm = 0;
 static F32 DLL_OUT_PowerSetpoint = 0;
 static F32 DLL_OUT_PowerOutput = 0;
 static F32 DLL_OUT_GenTorque = 0;
@@ -298,6 +302,7 @@ static F32 DLL_OUT_PitchAngle_3 = 0;
 //-----------------------------------------------------------------------
 static struct ModulInOut ModulOutputs[] =
 {
+   {"DLL_OUT_ControllerRpm",                    &DLL_OUT_ControllerRpm,                    sizeof(DLL_OUT_ControllerRpm),                    },
    {"DLL_OUT_PowerSetpoint",                    &DLL_OUT_PowerSetpoint,                    sizeof(DLL_OUT_PowerSetpoint),                    },
    {"DLL_OUT_PowerOutput",                      &DLL_OUT_PowerOutput,                      sizeof(DLL_OUT_PowerOutput),                      },
    {"DLL_OUT_GenTorque",                        &DLL_OUT_GenTorque,                        sizeof(DLL_OUT_GenTorque),                        },
@@ -473,6 +478,7 @@ static struct line_struct M_OutputsMenuLines[] =
    MENU_ELEMENT_LINE_VARRO("DLL Power Output",                 PASSWORD_LEVEL_END_CUSTOMER,        (char*)"DLL_OUT_PowerOutput",                        LINE_FORMAT_NONE),
    MENU_ELEMENT_LINE_VARRO("DLL Gen Torque",                   PASSWORD_LEVEL_END_CUSTOMER,        (char*)"DLL_OUT_GenTorque",                          LINE_FORMAT_NONE),
    MENU_ELEMENT_LINE_VARRO("DLL Gen Connected",                PASSWORD_LEVEL_END_CUSTOMER,        (char*)"DLL_OUT_GenConnected",                       LINE_FORMAT_NONE),
+   MENU_ELEMENT_LINE_VARRO("DLL Controller RPM",               PASSWORD_LEVEL_END_CUSTOMER,        (char*)"DLL_OUT_ControllerRpm",                      LINE_FORMAT_NONE),
 };
 
 // Local menu
@@ -987,6 +993,7 @@ static STATUS LocalCtrl( U32 Interval )
    DLL_OUT_PowerSetpoint = (F32)V_CNV_PowerSetpoint / 10;
    DLL_OUT_GenTorque = V_CNV_TorqueActNm / 10;
    DLL_OUT_PowerOutput = (F32)AI_GridRealPower / 1000;
+   DLL_OUT_ControllerRpm = (F32)V_ControllerRpm / 1000;
 
 #if defined DLL_SIMU_EXTERNALPITCH
    // when pitch drives simulated externally, use output pitch angles as setpoints

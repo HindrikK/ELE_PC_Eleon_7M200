@@ -123,6 +123,10 @@ int DLL_Initialize_Variables()
 	if (LocalStatus < 0) { return LocalStatus; }
 	DLL_OUT_PitchAngle_3_value = &(varID->c.Value.f32);
 
+	LocalStatus = OS_VarDB_GetVariableID("DLL_OUT_ControllerRpm", &varID);
+	if (LocalStatus < 0) { return LocalStatus; }
+	DLL_OUT_ControllerRpm_value = &(varID->c.Value.f32);
+
 
 	return 0;
 }
@@ -157,6 +161,7 @@ int DLL_UpdateOUTPUT()
 	DLL_OUT_PitchAngle_1 = *DLL_OUT_PitchAngle_1_value;
 	DLL_OUT_PitchAngle_2 = *DLL_OUT_PitchAngle_2_value;
 	DLL_OUT_PitchAngle_3 = *DLL_OUT_PitchAngle_3_value;
+	DLL_OUT_ControllerRpm = *DLL_OUT_ControllerRpm_value;
 
 	return 0;
 }

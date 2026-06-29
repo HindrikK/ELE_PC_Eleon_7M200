@@ -317,12 +317,11 @@ void DISCON(float* avrSWAP, int* aviFAIL, char* accINFILE, char* avcOUTNAME, cha
     {
 		//avrSWAP[R(SWAP_DEMANDED_COLLECTIVE_PITCH_ANGLE)] = 0;  // always set to 0 since we are using individual pitch control mode
         
-        
         avrSWAP[R(SWAP_PITCH_OVERRIDE_STATUS)] = 0.0f;     // pitch override flag (0 => use DLL pitch demand)
         avrSWAP[R(SWAP_TORQUE_OVERRIDE_STATUS)] = 0.0f;    // torque override flag (0 => use DLL torque demand)
 
         //avrSWAP[R(SWAP)] = DLL_OUT_ActiveCP1CodeNo;
-        avrSWAP[R(SWAP_CONTROLLER_STATE)] = DLL_OUT_OperationState;
+        //avrSWAP[R(SWAP_CONTROLLER_STATE)] = ;
         //avrSWAP[R(SWAP)] = DLL_OUT_PowerSetpoint;
         avrSWAP[R(SWAP_MEASURED_ELECTRICAL_POWER_OUTPUT)] = DLL_OUT_PowerOutput;
         avrSWAP[R(SWAP_DEMANDED_GENERATOR_TORQUE)] = DLL_OUT_GenTorque;
@@ -331,6 +330,8 @@ void DISCON(float* avrSWAP, int* aviFAIL, char* accINFILE, char* avcOUTNAME, cha
         avrSWAP[R(SWAP_DEMANDED_BLADE2_PITCH_INDIV)] = deg2rad(DLL_OUT_PitchAngle_2);
         avrSWAP[R(SWAP_DEMANDED_BLADE3_PITCH_INDIV)] = deg2rad(DLL_OUT_PitchAngle_3);
 
+        avrSWAP[R(SWAP_USER_DEFINED_VAR_1)] = DLL_OUT_OperationState;
+        avrSWAP[R(SWAP_USER_DEFINED_VAR_2)] = DLL_OUT_ControllerRpm;
     }
 
     g.last_time = t;

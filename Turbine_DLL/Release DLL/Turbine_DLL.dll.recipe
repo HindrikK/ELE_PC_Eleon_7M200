@@ -2,12 +2,12 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Hindrik\Documents\Work\Eleon\GIT\DLL\ELE_PC_Eleon_7M200\Release DLL\Turbine_DLL.dll</FullPath>
+      <FullPath>C:\Users\Hindrik\Documents\Work\Troonik\Eleon\GIT\DLL\ELE_PC_Eleon_7M200\Release DLL\Turbine_DLL.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles>
     <ContentFile>
-      <FullPath>C:\Users\Hindrik\Documents\Work\Eleon\GIT\DLL\ELE_PC_Eleon_7M200\Turbine_DLL\MODULE_CONFIG.XML</FullPath>
+      <FullPath>C:\Users\Hindrik\Documents\Work\Troonik\Eleon\GIT\DLL\ELE_PC_Eleon_7M200\Turbine_DLL\MODULE_CONFIG.XML</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />
