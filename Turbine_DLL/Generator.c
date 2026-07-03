@@ -2779,6 +2779,18 @@ static void UpdateRotorRpm(void)
     
     if (P_GEN_RpmFilt_Enable)
     {
+        // prevent the filtered value from deviating the measured value too much
+        if (V_ControllerRpm_Filt < (rpm - P_GEN_RpmFilt_DiffLim))
+        {
+            V_ControllerRpm_Filt = rpm - P_GEN_RpmFilt_DiffLim;
+            AccLim_Reset(RpmAccLimFilter, V_ControllerRpm_Filt);
+        }
+        else if (V_ControllerRpm_Filt > (rpm + P_GEN_RpmFilt_DiffLim))
+        {
+            V_ControllerRpm_Filt = rpm + P_GEN_RpmFilt_DiffLim;
+            AccLim_Reset(RpmAccLimFilter, V_ControllerRpm_Filt);
+        }
+
         rpm = V_ControllerRpm_Filt;
     }
     //****************************************************************************************
